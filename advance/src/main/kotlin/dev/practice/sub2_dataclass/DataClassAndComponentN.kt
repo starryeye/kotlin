@@ -17,7 +17,7 @@ fun main() {
     val member = Member(name = "member", age = 10)
     println("이름 : ${member.component1()}, 나이 : ${member.component2()}")
 
-    //구조분해할당(Destructuring declaration) 문법을 사용가능 (순서는 정확해야함) (실제 자바 코드로는 위와 동일함)
+    //구조분해선언(Destructuring declaration) 문법을 사용가능 (순서는 정확해야함) (실제 자바 코드로는 위와 동일함)
     val (name, age) = member
     println("이름 : $name, 나이 : $age")
 }
