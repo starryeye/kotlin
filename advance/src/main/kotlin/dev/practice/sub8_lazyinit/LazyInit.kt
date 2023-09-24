@@ -1,7 +1,5 @@
 package dev.practice.sub8_lazyinit
 
-import kotlin.concurrent.thread
-
 /**
  * 코틀린에서의 지연 초기화에 대해 알아본다.
  *
@@ -37,7 +35,7 @@ class HelloBotWithByLazy {
     // -> 실행마다 초기화 횟수는 달라질 수 있다.
     // 기본값은 LazyThreadSafetyMode.SYNCHRONIZED 이다.
     // TODO LazyThreadSafetyMode.NONE 와 LazyThreadSafetyMode.PUBLICATION 차이
-    val greeting: String by lazy {
+    val greeting: String by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
         println("지연 초기화")
         getHello()
     }
@@ -79,8 +77,8 @@ fun main() {
     //..
 
     for(i in 1 .. 5) {
-        thread {
+        Thread {
             helloBotWithByLazy2.sayHello() // multi thread 환경에서도 최초 1회만 초기화 된다.
-        }
+        }.start()
     }
 }
