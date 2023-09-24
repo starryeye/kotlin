@@ -11,6 +11,7 @@ fun main() {
      * 그러면 불변성이 깨진 것이고 아래와 같은 상황이 발생한다.
      *
      * 그래서.. data class 를 사용하더라도 가변객체가 된 것이고.. thread-safe(불변객체의 특징) 하지 않게 된 것이다.
+     * + set 기능이 생겨버려서 이슈 발생시 추적이 매우 힘들다..
      */
     val user1 = User(name = "user1", age = 10)
     val set = hashSetOf(user1) // 해시 Set 에 넣기
