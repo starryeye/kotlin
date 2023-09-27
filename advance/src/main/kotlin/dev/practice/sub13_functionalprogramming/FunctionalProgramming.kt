@@ -39,6 +39,7 @@ fun main() {
     // <참고>
     // fun 으로 선언 되었지만.. 아래의 getFunction, getFunction2 처럼 코드 블럭 자체를 리턴하는 함수는 위와 같은 상황이 아니라
     // 함수를 리턴해주는 함수를 실행한 것이다.
+    val printSomething3 = ::printGood // 람다 레퍼런스... 로 하면 되네..? LambdaReference.kt
 
     // type 이 "(String) -> Unit" 인 함수를 변수에 할당하였다. (일급 객체 조건)
     val printMessage : (String) -> Unit = { message ->  println(message) }
