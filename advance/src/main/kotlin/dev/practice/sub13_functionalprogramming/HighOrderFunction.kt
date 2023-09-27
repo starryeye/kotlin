@@ -18,13 +18,21 @@ fun forEach(collection: Collection<String>, action: (String) -> Unit) {
     }
 }
 
+fun doNothing(block: (String) -> Unit) { }
+
 fun main() {
 
     val listOf = listOf("A", "B", "C")
 
-    val printStr: (String) -> Unit = { println(it) }
+    val printStr: (String) -> Unit = { println(it) } // 함수 타입의 변수에 람다식(구현) 을 넣었다. -> lambdaExpression.kt
 
-    forEach(listOf, printStr)
+    forEach(listOf, printStr) // 함수를 인자로 전달.. forEach 함수는 함수를 인자로 받는 고차함수이다.
+
+    //--
+
+    doNothing(printStr) // doNothing 은 함수를 인자로 받는 고차함수이다. 내부에 아무것도 안하기 때문에 아무것도 안함
+
+
 
     /**
      * 이제 코틀린에서 제공하는 forEach, map 등의 함수들이 이해가 될 것이다..
@@ -43,7 +51,7 @@ fun main() {
 
 
 
-    // TODO 의문 사항..
+    // 의문 사항..
     // 아래는 뭐징.. 소괄호를 생략할 수 있네..
     // public inline fun <T> Iterable<T>.forEach(action: (T) -> Unit): Unit
     listOf.forEach { println(it) }
@@ -51,4 +59,5 @@ fun main() {
     //사실 위의 중괄호는 람다 식인게 밝혀졌다. -> LambdaExpression.kt
     // -> 그러나 아직 소괄호가 생략될 수 있는 이유를 모르겠다.
     // -> 지금 forEach 는 함수를 파라미터로 받는 고차 함수이며.. 파라미터를 전달해주려면 소괄호가 필수가 아닌가..?
+    // -> PassingTrailingLambda.kt 에서 해결
 }
