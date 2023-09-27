@@ -1,6 +1,8 @@
 package dev.practice.sub13_functionalprogramming
 
 /**
+ * [6]
+ *
  * 파라미터로 함수를 받는 고차함수인데..
  * 파라미터의 마지막 인자가 함수인 경우 passing trailing lambda (후행 람다 전달) 를 쓸 수 있다.
  *
