@@ -44,7 +44,11 @@ fun main() {
 
 
     // TODO 의문 사항..
-    // 아래는 뭐징.. 중괄호를 생략할 수 있네..
+    // 아래는 뭐징.. 소괄호를 생략할 수 있네..
     // public inline fun <T> Iterable<T>.forEach(action: (T) -> Unit): Unit
     listOf.forEach { println(it) }
+
+    //사실 위의 중괄호는 람다 식인게 밝혀졌다. -> LambdaExpression.kt
+    // -> 그러나 아직 소괄호가 생략될 수 있는 이유를 모르겠다.
+    // -> 지금 forEach 는 함수를 파라미터로 받는 고차 함수이며.. 파라미터를 전달해주려면 소괄호가 필수가 아닌가..?
 }
