@@ -1,6 +1,8 @@
 package dev.practice.sub13_functionalprogramming
 
 /**
+ * [1]
+ * 
  * 함수형 프로그래밍
  *
  * 함수형 프로그래밍은 수학의 함수적 개념을 참고하여 만든 패러다임이다.
