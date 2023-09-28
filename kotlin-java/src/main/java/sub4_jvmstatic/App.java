@@ -6,6 +6,8 @@ public class App {
      * 코틀린의 Companion Object (동반 객체, 내부 static 클래스) 의 static 함수 호출하는 방법
      *
      * 코틀린의 Object 객체의 함수 호출하는 방법
+     *
+     * + 함수 뿐만아니라 프로퍼티도..
      */
 
     public static void main(String[] args) {
