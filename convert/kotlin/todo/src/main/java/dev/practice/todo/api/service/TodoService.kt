@@ -27,7 +27,7 @@ class TodoService(
             ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
 
     @Transactional
-    fun createdTodo(request: TodoRequest?) : Todo{
+    fun createTodo(request: TodoRequest?) : Todo{
 
         checkNotNull(request) { "TodoRequest is null" }
 

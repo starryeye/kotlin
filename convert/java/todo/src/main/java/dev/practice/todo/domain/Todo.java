@@ -30,7 +30,8 @@ public class Todo {
     private LocalDateTime updatedAt;
 
     @Builder
-    private Todo(String title, String description, Boolean done, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    private Todo(Long id, String title, String description, Boolean done, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.done = done;
