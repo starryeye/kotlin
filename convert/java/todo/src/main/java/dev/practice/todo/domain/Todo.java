@@ -13,6 +13,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Todo {
 
+    /**
+     * 할일 리스트 도메인 객체
+     */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +25,7 @@ public class Todo {
 
     @Lob
     private String description;
-    private Boolean done;
+    private Boolean done; // 할 일이 끝났는지
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -33,8 +37,6 @@ public class Todo {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
-    //TODO create
 
     public void update(String title, String description, Boolean done) {
         this.title = title;
