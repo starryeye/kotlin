@@ -18,6 +18,11 @@
     - enum
 - advanced
   - 코틀린 심화 문법 알아보기
+    - collection
+    - data class
+    - singleton, object
+    - companion object
+    - sealed class
 - kotlin-java
   - 코틀린 자바 섞어 쓰기
 - convert
