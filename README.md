@@ -23,6 +23,13 @@
     - singleton, object
     - companion object
     - sealed class
+    - extension function
+    - generic
+    - variant
+    - lazyinit, lateinit
+    - pair, triple
+    - destructuring
+    - 
 - kotlin-java
   - 코틀린 자바 섞어 쓰기
 - convert
