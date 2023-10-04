@@ -31,6 +31,6 @@
     - destructuring
     - 
 - kotlin-java
-  - 코틀린 자바 섞어 쓰기
+  - 코틀린 자바 섞어 쓸때 주의점
 - convert
-  - java 에서 kotlin 프로젝트로 변환 해보기
+  - Spring java 에서 Spring kotlin 프로젝트로 변환 해보기
