@@ -34,3 +34,5 @@
   - 코틀린 자바 섞어 쓸때 주의점
 - convert
   - Spring java 에서 Spring kotlin 프로젝트로 변환 해보기
+- review
+  - 새로 복습 겸 학습
