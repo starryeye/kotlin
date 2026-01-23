@@ -4,7 +4,8 @@ class KotlinNullSafety2 {
 
     // null 이면 예외 발생
     fun startsWithA1(str: String?): Boolean =
-        str?.startsWith("A") ?: throw IllegalArgumentException("null..")
+        str?.startsWith("A")
+            ?: throw IllegalArgumentException("null..")
 
     // null 이면 null 반환
     fun startsWithA2(str: String?): Boolean? =
@@ -12,5 +13,10 @@ class KotlinNullSafety2 {
 
     // null 이면 다른 값(false) 반환
     fun startsWithA3(str: String?): Boolean =
-        str?.startsWith("A") ?: false
+        str?.startsWith("A")
+            ?: false
+
+    // early return
+    fun plus10(number: Long?): Long =
+        number?.plus(10) ?: 0
 }
