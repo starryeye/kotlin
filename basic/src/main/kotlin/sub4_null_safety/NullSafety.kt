@@ -27,8 +27,8 @@ fun main() {
     c?.length
 
     // 안전 연산자가 붙은 변수인데 null 참조가 이루어지면 null 을 리턴한다. (NPE 발생하지 않음)
-    // 즉, c 가 null 이면 length 를 동작시키지 않고 그대로 리턴함.
-    println("c?.length : " + c?.length)
+    //      c 가 null 이면 length 를 동작시키지 않고 null 그대로 리턴함.
+    println("c?.length : " + c?.length) // "c?.length : null" 이 출력됨.
 
     // ---------------------------------------------
 
@@ -36,11 +36,11 @@ fun main() {
 
     // nullable 변수와 if-else 를 사용한 케이스
     val e : Int = if(d != null) d.length else 0
-    println("d : $d")
+    println("e : $e") // "e : 0" 출력
 
     // 엘비스 연산자 "?:" , 좌변이 null 일 경우 우변을 리턴한다.
     val f = d?.length ?: 1
-    println("f : $f")
+    println("f : $f") // "f : 1" 출력
 
     // ---------------------------------------------
 

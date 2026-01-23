@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    java // java 파일도 가능하도록..
 }
 
 group = "org.example"
@@ -18,5 +19,11 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
+}
+
+java { // java 파일도 가능하도록..
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }

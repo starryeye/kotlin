@@ -1,5 +1,7 @@
 package sub4_null_safety
 
+import sub4_null_safety.ex1.JavaNullSafety
+
 /**
  * 코틀린에서 NPE 발생하는 경우
  */

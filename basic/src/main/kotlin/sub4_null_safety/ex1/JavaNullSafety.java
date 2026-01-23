@@ -1,4 +1,4 @@
-package sub4_null_safety;
+package sub4_null_safety.ex1;
 
 import java.util.Optional;
 
@@ -24,8 +24,8 @@ public class JavaNullSafety {
 
     public static void main(String[] args) {
 
-        String nullable = getNullStr();
-        String optionalString = Optional.ofNullable(nullable).orElse("null 이다.");
+        String optionalString = Optional.ofNullable(getNullStr())
+                .orElse("null 이다.");
 
         System.out.println(optionalString.length()); //Optional 로 wrapping 해놓았기 때문에 NPE 발행하지 않음
 

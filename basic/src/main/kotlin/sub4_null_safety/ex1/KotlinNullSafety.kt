@@ -1,4 +1,4 @@
-package sub4_null_safety
+package sub4_null_safety.ex1
 
 /**
  * JavaNullSafety 의 코틀린 버전이다.
