@@ -1,4 +1,4 @@
-package sub9_enum
+package sub10_enum
 
 enum class PaymentStatus2(val label: String) : Payable {
     UNPAID("미지급") {

@@ -1,4 +1,4 @@
-package sub5_exception
+package sub6_exception
 
 /**
  * 코틀린에서의 예외처리를 알아본다.

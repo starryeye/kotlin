@@ -1,4 +1,4 @@
-package sub7_inheritance
+package sub8_inheritance
 
 abstract class A {
 
