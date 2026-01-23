@@ -11,6 +11,11 @@ public class JavaVariableEx {
         long number4 = 1_000L;
 
         Person person = new Person("AAA");
+
+        int number5 = 3;
+        long number6 = 3L;
+        double number7 = 3.0;
+        float number8 = 3.0f;
     }
 
     private static class Person {
