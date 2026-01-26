@@ -1,4 +1,4 @@
-package sub8_inheritance
+package sub9_inheritance
 
 /**
  * 코틀린의 최상위 클래스는 Any 라는 클래스이다.

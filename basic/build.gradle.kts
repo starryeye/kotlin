@@ -27,3 +27,12 @@ java { // java 파일도 가능하도록..
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
+
+sourceSets {
+    main {
+        java.srcDir("src/main/kotlin")   // java도 kotlin 폴더를 소스로 봄
+    }
+    test {
+        java.srcDir("src/test/kotlin")
+    }
+}

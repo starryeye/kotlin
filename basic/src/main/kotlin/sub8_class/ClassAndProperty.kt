@@ -1,4 +1,4 @@
-package sub7_class
+package sub8_class
 
 /**
  * 코틀린에서는 클래스를 자바와 같이 class 키워드를 사용한다.

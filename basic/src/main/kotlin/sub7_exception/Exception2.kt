@@ -1,4 +1,4 @@
-package sub6_exception
+package sub7_exception
 
 fun main() {
 

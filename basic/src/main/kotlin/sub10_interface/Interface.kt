@@ -1,4 +1,4 @@
-package sub9_interface
+package sub10_interface
 
 class Product(val name: String, val price: Int)
 

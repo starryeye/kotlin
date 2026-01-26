@@ -1,4 +1,4 @@
-package sub5_type_casting.InstanceOf
+package sub5_type_casting.instance_of
 
 class KotlinTypeCasting {
 
