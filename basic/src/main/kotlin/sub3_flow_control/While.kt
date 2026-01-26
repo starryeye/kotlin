@@ -2,6 +2,8 @@ package sub3_flow_control
 
 /**
  * 코틀린의 while 문에 대해 알아보겠다.
+ *
+ * Java 와 완전히 동일함.
  */
 
 fun main() {
