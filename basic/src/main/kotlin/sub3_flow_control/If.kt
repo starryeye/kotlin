@@ -1,8 +1,8 @@
 package sub3_flow_control
 
 /**
- * 코틀린에서는 if - else 가 조건"문" 이 아니라
- * 조건"식" 이다.
+ * 코틀린에서는 if - else 가 조건"문" (statement) 이 아니라
+ * 조건"식" (expression) 이다.
  */
 
 fun main() {
@@ -10,9 +10,9 @@ fun main() {
     // 다른 언어와 동일하게 사용 가능하다.
     val job = "software developer"
 
-    if(job == "software developer") {
+    if (job == "software developer") {
         println("개발자")
-    }else {
+    } else {
         println("개발자 아님")
     }
 
@@ -22,9 +22,9 @@ fun main() {
     // 반환 값이 존재할 수 있다.
     val age: Int = 10
 
-    val str = if(age > 19) {
+    val str = if (age > 19) {
         "성인"
-    }else {
+    } else {
         "아이"
     }
     println(str)

@@ -22,9 +22,9 @@ fun main() {
 
     // --------------------------
 
-    // 반환 값이 존재해도 else 를 생략 할 수있다.
-    // enum 값이 2개 뿐이고 when 식에서 2개를 모두 명시 해줬기 때문에 이럴 경우 생략이 가능하다.
-    val result2 = when(getColor()) {
+    // 반환 값이 존재해도 else 를 생략 할 수 있다.
+    //      enum 값이 2개 뿐이고 when 식에서 2개를 모두 명시 해줬기 때문에 이럴 경우 생략이 가능하다.
+    val result2 = when (getColor()) {
         Color.RED -> "red"
         Color.GREEN -> "green"
     }
@@ -33,11 +33,45 @@ fun main() {
     // --------------------------
 
     // 여러 개의 조건을 콤마로 구분해 한줄로 작성할 수 있다.
-    val result3 = when(getNumber()) {
+    val result3 = when (getNumber()) {
         0, 1 -> println("0 or 1")
         else -> println("is not 0 or 1")
     }
     println(result3) // 반환 값이 없으므로 Unit 이 반환된다.
+
+    // --------------------------
+
+    // in 연산자를 활용할 수 있다.
+    val result4 = when (getNumber()) {
+        in 0..4 -> println("0 .. 4")
+        else -> println("is not 0 ~ 4")
+    }
+    println(result4) // 반환 값이 없으므로 Unit 이 반환된다.
+
+
+    // --------------------------
+
+    // is 연산자를 활용할 수 있다.
+    val obj = getString() as Any
+    val result5 = when (obj) {
+        is String -> {
+            // obj type 이 Any 였지만, String type 으로 사용할 수 있는 이유는 smart cast
+            println("obj is String type.. and length is " + obj.length)
+        }
+        else -> println("is not String type")
+    }
+    println(result5) // 반환 값이 없으므로 Unit 이 반환된다.
+
+
+    // --------------------------
+
+    // When 에 식 자체가 없게도 가능하고 이는 Java 의 early return 처럼 동작함
+    when {
+        getNumber() == 0 -> println("is 0")
+        getNumber() % 2 == 0 -> println("is even number")
+        else -> println("is odd number")
+    }
+    println(result5) // 반환 값이 없으므로 Unit 이 반환된다.
 }
 
 enum class Color {
@@ -47,3 +81,5 @@ enum class Color {
 fun getColor() = Color.RED
 
 fun getNumber() = 2
+
+fun getString() = "Hello"

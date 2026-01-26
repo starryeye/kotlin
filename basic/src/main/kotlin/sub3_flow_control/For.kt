@@ -8,7 +8,7 @@ fun main() {
 
     // 범위 연산자 ".." 를 사용하여 for loop
     // 마지막 숫자 포함
-    for (i in 0 .. 3) {
+    for (i in 0..3) {
         println(".. : $i") //0,1,2,3
     }
 
@@ -19,7 +19,7 @@ fun main() {
     }
 
     // step 값 만큼 증가 시킬 수 있다.
-    for (i in 0 .. 6 step 2) {
+    for (i in 0..6 step 2) {
         println("step : $i") //0,2,4,6
     }
 
@@ -29,9 +29,17 @@ fun main() {
     }
 
     // 전달 받은 배열을 반복, Java forEach
-    val numbers = arrayOf(1,2,3)
+    val numbers = arrayOf(1, 2, 3)
 
     for (i in numbers) {
         println("array : $i")
     }
+
+    /**
+     * if (y < 0 || y > n) 을..
+     * if (y !in 0..n) 으로 표현할 수 있고
+     *
+     * if (y >= 0 && y <= n) 을..
+     * if (y in 0..n) 으로 표현할 수 있다.
+     */
 }
