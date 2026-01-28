@@ -14,6 +14,16 @@ fun main() {
     number5 = number3.toLong() // 명시적 형변환 해줘야한다.
     number6 = number3 as Long // 명시적 형변환 해줘야한다.
 
+    //-----------------------------------------------------------------
+
+    /**
+     * 코틀린에서는 기본 타입간 형변환을 위해 toXXX 메서드를 제공함
+     */
+
+    val number7 = number3.toLong()
+    val str = number3.toString()
+    val number8 = number3.toDouble()
+    val number9 = number3.toBigDecimal()
 
 
     //-----------------------------------------------------------------
