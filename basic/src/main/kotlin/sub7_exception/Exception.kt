@@ -8,6 +8,10 @@ package sub7_exception
  * 코틀린에서는 Checked Exception 에 대해 자바와 같은 예외처리를 강제하지 않는다.
  * -> ex) Thread.sleep(1000) 을 예외처리 하지 않아도 된다.
  * -> 굳이 쓰고 싶다면 쓰면된다.
+ *
+ * 즉, 코틀린에서는..
+ * Checked Exception 과 UnChecked Exception 를 구분하지 않는다.
+ *      둘다 Unchecked Exception 으로 처리한다.
  */
 
 fun main() {
