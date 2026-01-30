@@ -1,18 +1,17 @@
-package sub8_class.ex1;
+package sub8_class.ex3;
 
 public class JavaPerson {
 
-    // 필드 선언
     private final String name; // 이름은 불변
     private int age;
-
-    /**
-     * 필드가 선언되고 getter/setter 가 존재하여 두 필드는 프로퍼티로 부른다.
-     */
 
     public JavaPerson(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public boolean isAdult() { // Java 에서 어떤 값에 대해 확인하는 기능을 넣을 때..
+        return this.age >= 20;
     }
 
     public String getName() {
