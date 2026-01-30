@@ -17,4 +17,21 @@ class KotlinPerson2(val name: String, var age: Int) {
      */
     val isAdult: Boolean
         get() = this.age >= 20
+
+
+    /**
+     * 코틀린에서 프로퍼티는 반드시 초기화가 필요하다. (생성자에서 초기화를 하던, 기본값을 주던..)
+     *
+     * 그러나.. 위의 예제에서는 초기화가 안되었다.
+     * 이유 : 코틀린에서의 프로퍼티는 반드시 “초기값” 또는 “custom getter” 중 하나를 가져야 한다.
+     *
+     * 코틀린의 프로퍼티
+     * 일반 프로퍼티 (Stored Property, Property with backing field)
+     *      내부적으로 인스턴스에 값을 실제로 저장하고 getter 는 저장된 값을 반환
+     * 계산된 프로퍼티 (Computed Property)
+     *      내부적으로 인스턴스에 값을 저장하지 않고, 접근 시마다 계산된다. custom getter 만 존재 함.
+     *      따라서 계산된 프로퍼티의 get() 함수 바디에서는 backing field 를 사용할 수 없음 (값을 저장하지 않으므로)
+     *      Java 관점에서는 필드 없이 getXXX 메서드만 있는 형태
+     *
+     */
 }
