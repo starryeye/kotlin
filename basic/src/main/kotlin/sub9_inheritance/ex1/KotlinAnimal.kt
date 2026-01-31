@@ -5,6 +5,6 @@ abstract class KotlinAnimal( // 추상클래스는 abstract 키워드
     protected open val legCount: Int // open 은 KotlinPenguin 참고
 ) {
 
-    abstract fun move(): Unit; // 추상메서드는 abstract 키워드, Unit 생략가능
+    abstract fun move(): Unit // 추상메서드는 abstract 키워드, Unit 생략가능
 
 }
