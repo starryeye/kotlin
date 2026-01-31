@@ -2,7 +2,7 @@ package sub8_class.ex1
 
 class KotlinPerson1 constructor(name: String, age: Int) {
 
-    // 프로퍼티 선언
+    // 프로퍼티 선언, 생성자 파라미터 값으로 초기화하고 있다.
     val name: String = name
     var age: Int = age
 

@@ -32,6 +32,7 @@ class KotlinPerson2(val name: String, var age: Int) {
      *      내부적으로 인스턴스에 값을 저장하지 않고, 접근 시마다 계산된다. custom getter 만 존재 함.
      *      따라서 계산된 프로퍼티의 get() 함수 바디에서는 backing field 를 사용할 수 없음 (값을 저장하지 않으므로)
      *      Java 관점에서는 필드 없이 getXXX 메서드만 있는 형태
+     *      -> 위 isAdult 가 Computed Property 이다.
      *
      */
 }
