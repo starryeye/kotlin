@@ -1,4 +1,4 @@
-package sub11_enum
+package sub12_enum
 
 /**
  * 코틀린에서의 enum class 를 알아본다.
