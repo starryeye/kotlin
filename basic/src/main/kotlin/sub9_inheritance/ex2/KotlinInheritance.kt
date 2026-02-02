@@ -38,4 +38,8 @@ class Derived(
  *
  * 5. 그 다음에 Derived 의 프로퍼티 초기화가 진행되어 number=300 이 세팅됨
  *      [Derived] The number is 300 출력
+ *
+ * 결론,
+ *      상위 클래스를 설계할때 생성자 또는 초기화 블록에 사용되는 프로퍼티에는
+ *      open 을 피해야한다.
  */
