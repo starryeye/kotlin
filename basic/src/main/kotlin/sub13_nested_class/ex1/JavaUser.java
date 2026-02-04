@@ -17,6 +17,14 @@ public class JavaUser {
         this.age = builder.age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public static class Builder {
         /**
          * static 중첩 클래스 내부에서는 외부 클래스를 직접 참조하지 못한다.

@@ -47,19 +47,6 @@ class KotlinUser private constructor(
  *     val age: Int = 0
  * )
  *
- * 정적 팩토리 메서드를 사용해서 검증로직도 넣고 싶다면..
- *
- * class User private constructor(
- *     val name: String,
- *     val age: Int
- * ) {
- *     companion object {
- *         fun create(name: String, age: Int): User {
- *             require(age >= 0)
- *             return User(name, age)
- *         }
- *     }
- * }
  */
 
 fun main() {
