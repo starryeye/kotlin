@@ -8,8 +8,8 @@ class KotlinUser private constructor(
     val age: Int = builder.age
 
     /**
-     * Kotlin에서 중첩 클래스는 기본이 static 이다.
-     * 따라서 Java의 static 중첩 클래스와 동일한 의미를 가진다.
+     * Kotlin 에서 중첩 클래스는 기본이 static 이다.
+     * 따라서 Java 의 static 중첩 클래스와 동일한 의미를 가진다.
      */
     class Builder {
         /**
