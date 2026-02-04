@@ -1,0 +1,13 @@
+## 헷갈리기 쉬운 것 정리..
+- val x	
+  - public getter
+  - setter 없음
+- var x	
+  - public getter
+  - public setter
+- private val x	
+  - private getter
+  - setter 없음
+- private var x
+  - private getter
+  - private setter
