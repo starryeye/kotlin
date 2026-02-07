@@ -20,7 +20,7 @@ class KotlinPenguin(
      * Kotlin 에서는..
      * KotlinAnimal 의 protected val legCount: Int 프로퍼티 자체를 오버라이딩해야함.
      *      이후, custom getter 를 이용
-     * 대신.. 프로퍼티를 오버라이딩 하려면, KotlinAnimal 의 legCount 프로퍼티에 open 키워드를 사용해줘야한다.
+     * 대신.. 프로퍼티를 오버라이딩 하려면, KotlinAnimal 의 legCount 프로퍼티에 open 키워드를 사용해줘야한다. (기본은 final 키워드로 생략되고 상속 불가능)
      *
      * 참고.
      * 아니 그냥.. 코틀린에서도 getLegCount() 함수만 오버라이딩 할수는 없나?
