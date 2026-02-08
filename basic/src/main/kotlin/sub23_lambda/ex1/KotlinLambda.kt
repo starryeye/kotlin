@@ -1,4 +1,7 @@
-package sub23_lambda
+package sub23_lambda.ex1
+
+import sub23_lambda.ex1.Fruit
+import kotlin.collections.forEach
 
 /**
  * Java 에서는 코드조각(함수)을 변수에 할당하거나 리턴값으로 넘길수 있는 것 "처럼" 설명하지만..

@@ -1,4 +1,4 @@
-package sub23_lambda
+package sub23_lambda.ex1
 
 data class Fruit(
     val name: String,
