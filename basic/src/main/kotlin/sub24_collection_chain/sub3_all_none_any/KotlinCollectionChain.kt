@@ -1,4 +1,4 @@
-package sub24_collection_chain.sub3_all
+package sub24_collection_chain.sub3_all_none_any
 
 import sub24_collection_chain.Fruit
 
@@ -12,6 +12,17 @@ fun main() {
 
     println(result1)
 
+    // none
+    //      람다 조건을 모두 불만족하면 true, 아니면 false
+    val result2 = fruits.none { fruit -> fruit.name == "apple" }
+
+    println(result2)
+
+    // any
+    //      람다 조건을 하나라도 만족하면 true, 아니면 false
+    val result3 = fruits.any { fruit -> fruit.name == "apple" }
+
+    println(result3)
 }
 
 private fun getFruits(): List<Fruit> = listOf(
