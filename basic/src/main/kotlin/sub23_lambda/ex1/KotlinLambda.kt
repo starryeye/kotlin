@@ -9,6 +9,8 @@ import kotlin.collections.forEach
  * Java 의 메서드는 2급 시민이다.
  *
  * Kotlin 에서는 함수가 실제로 1급 시민이다.
+ *      타입
+ *          (파라미터타입, ...) -> 반환타입
  */
 
 fun main() {
@@ -34,7 +36,7 @@ fun main() {
     val isApple: (Fruit) -> Boolean = fun(fruit: Fruit): Boolean { // 해당 변수의 타입은 "(Fruit) -> Boolean" 으로 추론되므로 생략가능
         return fruit.name == "apple"
     }
-    // 람다 선언 2번 방법
+    // 람다 선언 2번 방법 (1번보다 많이 사용됨)
     val isBanana = { fruit: Fruit -> fruit.name == "banana" } // 변수의 타입이 생략됨.
     // 참고 예시
     val isWater = { fruit: Fruit ->
