@@ -1,4 +1,4 @@
-package sub24_collection_chain.sub8_groupby
+package sub24_collection_chain.sub9_associateby
 
 import sub24_collection_chain.Fruit
 
@@ -6,18 +6,19 @@ fun main() {
 
     val fruits = getFruits()
 
-    // groupBy
-    //      람다 결과를 기준으로 그룹핑된다.. (Map<람다결과, List<원소>> 로 나옴.)
-    //      key 는 그루핑된 기준 값, value 는 그루핑 대상 인스턴스 리스트
-    val result1: Map<String, List<Fruit>> = fruits.groupBy { fruit -> fruit.name }
+    // associateBy
+    //      람다 결과를 기준으로 매핑된다.. (Map<람다결과, 원소> 로 나옴.)
+    //      key 는 그루핑된 기준 값, value 는 대상 인스턴스
+    //      참고
+    //          여러개의 원소가 동일한 key 에 매핑되더라도 하나만 들어간다.
+    val result1: Map<Long, Fruit> = fruits.associateBy { fruit -> fruit.id }
 
     println(result1::class) // 이렇게 하면 JVM runtime class 메타데이터 정보가 나와서.. 의미 없음.. (Kotlin 타입 보고 싶으면 변수 위에 마우스 커서올려라..)
     println(result1)
 
-
-    //      groupBy 파라미터에 하나가아닌 두개의 람다가 들어가면.. (Map<첫번째람다결과, List<두번째람다결과>> 로 나옴.)
-    //      key 는 첫번째 람다 결과, value 는 그루핑 대상 인스턴스 리스트의 두번째 람다 결과로 구성
-    val result2 = fruits.groupBy({ fruit -> fruit.name }, { fruit -> fruit.factoryPrice })
+    //      associateBy 파라미터에 하나가아닌 두개의 람다가 들어가면.. (Map<첫번째람다결과, 두번째람다결과> 로 나옴.)
+    //      key 는 첫번째 람다 결과, value 는 대상 인스턴스의 두번째 람다 결과로 구성
+    val result2 = fruits.associateBy({ fruit -> fruit.id }, { fruit -> fruit.factoryPrice })
 
     println(result2)
 }
