@@ -5,3 +5,5 @@
   - Java 의 경우엔.. collection -> stream -> 원소단위로 흘려보내서 -> 최종 api 로 collection 생성..
   - Kotlin 은... collection -> collection
 - 놀랍게도 성능상 문제를 걱정할 필요는 없다고 한다...;;
+- Java 처럼 원소가 흐르는게 아니라는 점을 아주 극명하게 느낄수 있는게..
+  - sub10.sub1_flatmap 임.
