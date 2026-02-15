@@ -20,7 +20,7 @@ fun main() {
     val result2 = fruits.mapNotNull { fruit ->
         fruit.name
             ?.takeIf { it == "apple" } // 파라미터가 람다조건에 true 면 this 로 계속, false 면 null 로 계속
-            ?.let { fruit.currentPrice } // 파라미터가 null 이 아니면 람다실행 및 결과로 계속, null 이면 null 로 계속
+            ?.let { fruit.currentPrice } // 파라미터가 null 이 아니면 람다실행 및 결과로 계속, null 이면 null 로 계속 (null-safe 는 "?." 에 의함)
     }
 
     println(result2)
