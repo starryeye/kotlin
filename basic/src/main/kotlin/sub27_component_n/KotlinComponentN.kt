@@ -25,7 +25,7 @@ fun main() {
      * val age2 = person2.component2()
      * 와 동일하다.
      */
-    val (name2, age2) = person2
+    val (name2, age2) = person2 // 구조분해 문법을 이용해 변수를 한번에 초기화
     println("$name2, $age2")
 }
 
