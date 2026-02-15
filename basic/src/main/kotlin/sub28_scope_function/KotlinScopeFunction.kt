@@ -40,7 +40,14 @@ package sub28_scope_function
  *          수신 객체 참조시 this 를 사용
  *              "리시버가 T.() 로 T 에 대한 확장함수이므로 람다내부에서 "this." 을 생략가능 (sub19_extension_function 특징4 참고)
  *
- * 종류
+ * 정리..
+ *      let / run        : 결과(R)를 반환 (변환/계산)
+ *      also / apply     : 리시버(T)를 반환 (side-effect / 설정)
+ *      let / also       : it 기반 (명시적)
+ *      run / apply / with : this 기반 (문맥)
+ *      null-safe 여부는 항상 safe-call(?.)이 결정
+ *
+ * 시그니처
  *      let
  *          public inline fun <T, R> T.let(block: (T) -> R): R
  *              리시버(T)에 대해 block(람다)을 "항상" 실행하고 그 결과 R 을 반환한다.
@@ -55,9 +62,21 @@ package sub28_scope_function
  *                  T 에 대한 확장함수가 파라미터이다.
  *              사용
  *                  val r = t.run { xxx() }
+ *      also
+ *          public inline fun <T> T.also(block: (T) -> Unit): T
+ *              리시버(T)에 대해 block(람다)을 "항상" 실행하고 원래 리시버를 그대로 반환한다.
+ *              사용
+ *                  val r = t.also { println(it) }
+ *      apply
+ *          public inline fun <T> T.apply(block: T.() -> Unit): T
+ *              리시버(T.())에 대해 block(람다)을 "항상" 실행하고 원래 리시버를 그대로 반환한다.
+ *              사용
+ *                  val r = t.apply { xxx() }
  *      with
  *          public inline fun <T, R> with(receiver: T, block: T.() -> R): R
  *              첫번째 파라미터(T)가 리시버이며, 두번째 람다는 run 의 람다와 동일
+ *              사용
+ *                  val r = with(t) { xxx() }
  *      takeIf
  *          public inline fun <T> T.takeIf(predicate: (T) -> kotlin.Boolean): T?
  *              predicate가 true면 this 반환, false면 null 반환
