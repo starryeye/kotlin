@@ -39,4 +39,11 @@ public class User {
                 .age(age)
                 .build();
     }
+
+    public void changeUsername(String username) {
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("username must not be blank");
+        }
+        this.username = username;
+    }
 }
