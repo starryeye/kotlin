@@ -4,9 +4,9 @@ import dev.starryeye.book_library.application.command.command.RegisterUserComman
 import dev.starryeye.book_library.application.command.result.RegisterUserResult;
 import dev.starryeye.book_library.domain.User;
 import dev.starryeye.book_library.domain.UserRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
