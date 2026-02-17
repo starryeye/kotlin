@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.application.query.result;
 
-import dev.starryeye.book_library.domain.User;
+import dev.starryeye.book_library.domain.user.User;
 
 public record GetUserResult(
         Long id,
