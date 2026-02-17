@@ -5,7 +5,10 @@ fun main() {
     /**
      * Kotlin 의 scope function 은 Java 에서 뭐랑 매핑된다는게 딱히 없다..
      *
-     * let + safe-call operator
+     *
+     * scope function 과 Java 의 어떤 패턴과 매핑 리스트
+     *      아래 scope function 뿐만 아니라 safe-call operator, elvis 를 함께 사용한 것.
+     * let
      *      null 체크 + 변환 / Optional.map
      * run
      *      임시 변수 + 블록
@@ -29,8 +32,8 @@ fun main() {
     //     .orElseThrow(...)
     // ---------------------------------
     val len = getString()
-        ?.let { it.length }
-        ?: throw IllegalStateException("str is null")
+        ?.let { it.length } // safe-call operation 사용
+        ?: throw IllegalStateException("str is null") // Elvis 사용
 
     println("let example result = $len")
 
@@ -43,8 +46,8 @@ fun main() {
     //     .orElseGet(this::defaultValue)
     // ---------------------------------
     val computed = getString()
-        ?.run { length + 10 }
-        ?: defaultValue()
+        ?.run { length + 10 } // safe-call operation 사용
+        ?: defaultValue() // Elvis 사용
 
     println("run example result = $computed")
 
@@ -56,7 +59,7 @@ fun main() {
     //     .ifPresent(str -> log...)
     // ---------------------------------
     getString()
-        ?.also { println("also example log = $it") }
+        ?.also { println("also example log = $it") } // safe-call operation 사용
 
 
     // ---------------------------------
@@ -67,11 +70,11 @@ fun main() {
     //     .orElseThrow(...)
     // ---------------------------------
     val user = createUser()
-        ?.apply {
+        ?.apply { // safe-call operation 사용
             name = "kim"
             age = 20
         }
-        ?: throw IllegalStateException("user is null")
+        ?: throw IllegalStateException("user is null") // Elvis 사용
 
     println("apply example result = $user")
 
@@ -84,8 +87,8 @@ fun main() {
     //     .orElseThrow(...)
     // ---------------------------------
     val filtered = getString()
-        ?.takeIf { it.length > 5 }
-        ?: throw IllegalArgumentException("length <= 5")
+        ?.takeIf { it.length > 5 } // safe-call operation 사용
+        ?: throw IllegalArgumentException("length <= 5") // Elvis 사용
 
     println("takeIf example result = $filtered")
 }
