@@ -35,7 +35,7 @@ public class User extends BaseEntity {
         this.age = age;
     }
 
-    public static User createUser(String username, int age) {
+    public static User createUser(String username, Integer age) {
         return User.builder()
                 .id(null)
                 .username(username)
