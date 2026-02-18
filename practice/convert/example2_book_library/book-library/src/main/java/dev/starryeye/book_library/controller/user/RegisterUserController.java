@@ -1,9 +1,9 @@
 package dev.starryeye.book_library.controller.user;
 
-import dev.starryeye.book_library.application.command.result.RegisterUserResult;
+import dev.starryeye.book_library.application.user.command.result.RegisterUserResult;
 import dev.starryeye.book_library.controller.user.request.RegisterUserRequest;
 import dev.starryeye.book_library.controller.user.response.UserResponse;
-import dev.starryeye.book_library.application.command.RegisterUserService;
+import dev.starryeye.book_library.application.user.command.RegisterUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

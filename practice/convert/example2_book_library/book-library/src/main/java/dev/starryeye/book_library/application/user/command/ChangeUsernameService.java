@@ -1,6 +1,6 @@
-package dev.starryeye.book_library.application.command;
+package dev.starryeye.book_library.application.user.command;
 
-import dev.starryeye.book_library.application.command.command.ChangeUsernameCommand;
+import dev.starryeye.book_library.application.user.command.command.ChangeUsernameCommand;
 import dev.starryeye.book_library.domain.user.User;
 import dev.starryeye.book_library.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;

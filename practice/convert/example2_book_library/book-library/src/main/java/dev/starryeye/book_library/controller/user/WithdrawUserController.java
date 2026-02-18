@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.controller.user;
 
-import dev.starryeye.book_library.application.command.WithdrawUserService;
+import dev.starryeye.book_library.application.user.command.WithdrawUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestParam;

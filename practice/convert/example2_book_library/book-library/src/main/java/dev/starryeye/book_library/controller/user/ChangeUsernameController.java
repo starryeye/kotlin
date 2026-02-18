@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.controller.user;
 
-import dev.starryeye.book_library.application.command.ChangeUsernameService;
+import dev.starryeye.book_library.application.user.command.ChangeUsernameService;
 import dev.starryeye.book_library.controller.user.request.ChangeUsernameRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

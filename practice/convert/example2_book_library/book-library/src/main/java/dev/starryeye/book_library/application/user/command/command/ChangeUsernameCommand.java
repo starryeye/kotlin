@@ -1,4 +1,4 @@
-package dev.starryeye.book_library.application.command.command;
+package dev.starryeye.book_library.application.user.command.command;
 
 import java.util.Objects;
 

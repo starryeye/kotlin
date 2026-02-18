@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.controller.user.request;
 
-import dev.starryeye.book_library.application.command.command.ChangeUsernameCommand;
+import dev.starryeye.book_library.application.user.command.command.ChangeUsernameCommand;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

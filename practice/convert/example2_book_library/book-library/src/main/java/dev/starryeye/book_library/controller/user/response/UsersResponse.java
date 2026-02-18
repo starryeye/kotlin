@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.controller.user.response;
 
-import dev.starryeye.book_library.application.query.result.GetUsersResult;
+import dev.starryeye.book_library.application.user.query.result.GetUsersResult;
 
 import java.util.List;
 

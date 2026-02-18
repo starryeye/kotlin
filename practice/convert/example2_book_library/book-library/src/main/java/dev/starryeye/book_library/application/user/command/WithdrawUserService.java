@@ -1,25 +1,22 @@
-package dev.starryeye.book_library.application.query;
+package dev.starryeye.book_library.application.user.command;
 
-import dev.starryeye.book_library.application.query.result.GetUsersResult;
 import dev.starryeye.book_library.domain.user.User;
 import dev.starryeye.book_library.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-@Transactional(readOnly = true)
+@Transactional
 @Service
 @RequiredArgsConstructor
-public class GetUsersService {
+public class WithdrawUserService {
 
     private final UserRepository userRepository;
 
-    public GetUsersResult get() {
+    public void withdraw(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("user is not found, id = " + id));
 
-        List<User> users = userRepository.findAll();
-
-        return GetUsersResult.of(users);
+        userRepository.delete(user);
     }
 }

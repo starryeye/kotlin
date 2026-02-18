@@ -1,4 +1,4 @@
-package dev.starryeye.book_library.application.command.result;
+package dev.starryeye.book_library.application.user.command.result;
 
 import dev.starryeye.book_library.domain.user.User;
 

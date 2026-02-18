@@ -1,6 +1,6 @@
 package dev.starryeye.book_library.controller.user.request;
 
-import dev.starryeye.book_library.application.command.command.RegisterUserCommand;
+import dev.starryeye.book_library.application.user.command.command.RegisterUserCommand;
 import jakarta.validation.constraints.NotBlank;
 
 public record RegisterUserRequest(
