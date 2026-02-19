@@ -1,13 +1,13 @@
-package dev.starryeye.book_library.application.book.command.command;
+package dev.starryeye.book_library.application.facade.input;
 
 import java.util.Objects;
 
-public record LoanBookCommand(
+public record ReturnBookInput(
         Long bookId,
         Long userId
 ) {
 
-    public LoanBookCommand {
+    public ReturnBookInput {
         Objects.requireNonNull(bookId, "bookId must not be null");
         Objects.requireNonNull(userId, "userId must not be null");
     }
