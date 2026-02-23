@@ -13,11 +13,11 @@ class UserLoanHistory(
     val bookId: Long,
 
     var isReturn: Boolean,
+) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-) {
+    val id: Long? = null
 
     fun markReturned() {
         if (isReturn) {

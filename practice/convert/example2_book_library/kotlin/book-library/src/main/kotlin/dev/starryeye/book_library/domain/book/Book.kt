@@ -10,11 +10,11 @@ import jakarta.persistence.Table
 @Table(name = "books")
 class Book(
     val name: String?,
+) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-) {
+    val id: Long? = null
 
     init {
         if (name.isNullOrBlank()) {

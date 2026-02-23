@@ -10,14 +10,15 @@ class User(
     var username: String,
 
     val age: Int?,
-
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
-    val loanHistories: MutableList<UserLoanHistory> = mutableListOf(),
+) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-) {
+    val id: Long? = null
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    val loanHistories: MutableList<UserLoanHistory> = mutableListOf()
+
 
     init {
         if (username.isBlank()) {
