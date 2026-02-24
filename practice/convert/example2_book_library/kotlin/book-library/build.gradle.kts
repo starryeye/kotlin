@@ -1,6 +1,6 @@
 plugins {
 	kotlin("jvm") version "2.2.21"
-	kotlin("plugin.spring") version "2.2.21"
+	kotlin("plugin.spring") version "2.2.21" // spring bean class 와 함수에 open 이 기본적으로 적용되도록 함.
 	id("org.springframework.boot") version "4.0.3"
 	id("io.spring.dependency-management") version "1.1.7"
 	kotlin("plugin.jpa") version "2.2.21" // entity no-argument constructor 없어도 해결
