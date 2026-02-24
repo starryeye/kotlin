@@ -9,7 +9,7 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "books")
 class Book(
-    val name: String?,
+    val bookname: String?,
 ) {
 
     @Id
@@ -17,7 +17,7 @@ class Book(
     val id: Long? = null
 
     init {
-        if (name.isNullOrBlank()) {
+        if (bookname.isNullOrBlank()) {
             throw IllegalArgumentException("Book name cannot be null or blank")
         }
     }

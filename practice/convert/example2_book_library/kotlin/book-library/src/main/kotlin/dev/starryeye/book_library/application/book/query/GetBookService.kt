@@ -9,4 +9,8 @@ import org.springframework.transaction.annotation.Transactional
 class GetBookService(
     private val bookRepository: BookRepository,
 ) {
+
+    fun existsBy(bookId: Long): Boolean {
+        return bookRepository.existsById(bookId)
+    }
 }
