@@ -26,7 +26,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect") // 코틀린 객체 reflection 가능하도록 해줌
-	implementation("tools.jackson.module:jackson-module-kotlin")
+	implementation("tools.jackson.module:jackson-module-kotlin") // 코틀린 dto serialize, deserialize 지원
 
 	runtimeOnly("com.h2database:h2")
 
