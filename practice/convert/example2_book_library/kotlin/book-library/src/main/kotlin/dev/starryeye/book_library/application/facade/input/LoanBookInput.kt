@@ -1,3 +1,6 @@
 package dev.starryeye.book_library.application.facade.input
 
-data class LoanBookInput()
+data class LoanBookInput(
+    val bookId: Long,
+    val userId: Long,
+)
