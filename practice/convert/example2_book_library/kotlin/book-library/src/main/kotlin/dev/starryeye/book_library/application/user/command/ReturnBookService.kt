@@ -9,4 +9,12 @@ import org.springframework.transaction.annotation.Transactional
 class ReturnBookService(
     private val userRepository: UserRepository,
 ) {
+
+    fun returnBook(userId: Long, bookId: Long) {
+
+        val user = userRepository.findByIdWithLoanHistories(userId)
+            ?: throw IllegalArgumentException("user is not found, id = $userId")
+
+        user.returnBook(bookId)
+    }
 }
