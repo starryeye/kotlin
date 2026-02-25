@@ -1,16 +1,19 @@
 package dev.starryeye.book_library.domain.user
 
+import dev.starryeye.book_library.domain.BaseEntity
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistory
 import jakarta.persistence.*
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 @Entity
 @Table(name = "users")
+@EntityListeners(AuditingEntityListener::class)
 class User(
 
     var username: String,
 
     val age: Int?,
-) {
+) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

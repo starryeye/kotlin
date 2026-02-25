@@ -1,10 +1,13 @@
 package dev.starryeye.book_library.domain.user.loan_history
 
+import dev.starryeye.book_library.domain.BaseEntity
 import dev.starryeye.book_library.domain.user.User
 import jakarta.persistence.*
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 @Entity
 @Table(name = "user_loan_history")
+@EntityListeners(AuditingEntityListener::class)
 class UserLoanHistory(
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -13,7 +16,7 @@ class UserLoanHistory(
     val bookId: Long,
 
     var isReturn: Boolean,
-) {
+) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
