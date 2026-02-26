@@ -16,8 +16,8 @@ class Book(
     val bookname: String?,
 ) : BaseEntity() {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @field:Id
+    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null
 
     init {

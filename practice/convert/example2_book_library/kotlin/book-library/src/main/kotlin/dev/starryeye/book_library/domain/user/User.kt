@@ -15,11 +15,11 @@ class User(
     val age: Int?,
 ) : BaseEntity() {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @field:Id
+    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null
 
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    @field:OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
     val loanHistories: MutableList<UserLoanHistory> = mutableListOf()
 
 

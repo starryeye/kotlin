@@ -11,10 +11,10 @@ import java.time.LocalDateTime
 @EntityListeners(value = [AuditingEntityListener::class])
 abstract class BaseEntity {
 
-    @CreatedDate
+    @field:CreatedDate
     val createdDate: LocalDateTime? = null
 
-    @LastModifiedDate
+    @field:LastModifiedDate
     var lastModifiedDate: LocalDateTime? = null
 
 }

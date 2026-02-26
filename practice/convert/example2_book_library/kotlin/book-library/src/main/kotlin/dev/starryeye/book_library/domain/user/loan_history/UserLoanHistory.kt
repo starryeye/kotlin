@@ -9,8 +9,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "user_loan_history")
 @EntityListeners(AuditingEntityListener::class)
 class UserLoanHistory(
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @field:ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @field:JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
     val bookId: Long,
@@ -18,8 +18,8 @@ class UserLoanHistory(
     var isReturn: Boolean,
 ) : BaseEntity() {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @field:Id
+    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null
 
     fun markReturned() {
