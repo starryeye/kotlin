@@ -1,5 +1,6 @@
 package dev.starryeye.book_library.domain
 
+import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass
 import org.springframework.data.annotation.CreatedDate
@@ -12,9 +13,12 @@ import java.time.LocalDateTime
 abstract class BaseEntity {
 
     @field:CreatedDate
-    val createdDate: LocalDateTime? = null
+    @Column(nullable = false, updatable = false)
+    var createdDate: LocalDateTime? = null
+        protected set
 
     @field:LastModifiedDate
+    @Column(nullable = false)
     var lastModifiedDate: LocalDateTime? = null
-
+        protected set
 }
