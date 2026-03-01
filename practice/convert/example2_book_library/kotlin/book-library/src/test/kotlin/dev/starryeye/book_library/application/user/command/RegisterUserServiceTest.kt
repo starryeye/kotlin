@@ -50,4 +50,20 @@ class RegisterUserServiceTest @Autowired constructor(
         assertThat(users[0].username).isEqualTo(command.username)
         assertThat(users[0].age).isEqualTo(command.age)
     }
+
+    @DisplayName("나이가 없어도 유저를 등록할 수 있다.")
+    @Test
+    fun registerUser3() {
+        // given
+        val command: RegisterUserCommand = RegisterUserCommand("A", age = null)
+
+        // when
+        val result = service.register(command)
+
+        // then
+        val users = repository.findAll()
+        assertThat(users).hasSize(1)
+        assertThat(users[0].username).isEqualTo(command.username)
+        assertThat(users[0].age).isEqualTo(command.age)
+    }
 }
