@@ -19,7 +19,7 @@ class ChangeUsernameService(
 //        val user = userRepository.findByIdOrNull(command.id)
 //            ?: fail("user is not found, id = " + command.id)
 
-        // 위 주석과 동일함.
+        // 위 주석과 동일함. (커스텀 확장 함수 사용)
         val user = userRepository.findByIdOrThrow(command.id, "user is not found, id = ${command.id}")
 
         user.changeUsername(command.username)
