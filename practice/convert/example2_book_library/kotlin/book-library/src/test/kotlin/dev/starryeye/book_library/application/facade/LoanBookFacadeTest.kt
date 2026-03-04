@@ -34,7 +34,7 @@ class LoanBookFacadeTest @Autowired constructor(
     fun loanBook1() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser = userRepository.save(User("A", 20))
         val command = LoanBookInput(savedBook.id!!, savedUser.id!!)
 
@@ -71,7 +71,7 @@ class LoanBookFacadeTest @Autowired constructor(
     fun loanBook3() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val notExistUserId = 999L
         val command = LoanBookInput(savedBook.id!!, notExistUserId)
 
@@ -87,7 +87,7 @@ class LoanBookFacadeTest @Autowired constructor(
     fun loanBook4() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser1 = userRepository.save(User("A", 20))
         val beforeCommand = LoanBookInput(savedBook.id!!, savedUser1.id!!)
         facade.loanBook(beforeCommand)

@@ -25,7 +25,7 @@ class GetBookServiceTest @Autowired constructor(
     fun existsBy1() {
 
         // given
-        val saved = bookRepository.save(Book("A"))
+        val saved = bookRepository.save(Book.fixture("A"))
         val bookId: Long = saved.id!!
 
         // when

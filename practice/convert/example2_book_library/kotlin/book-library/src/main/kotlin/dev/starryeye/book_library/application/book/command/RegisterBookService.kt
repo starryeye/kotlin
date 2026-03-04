@@ -15,7 +15,8 @@ class RegisterBookService(
     fun register(command: RegisterBookCommand) {
 
         val book = Book(
-            bookname = command.bookname
+            bookname = command.bookname,
+            category = command.category,
         )
 
         bookRepository.save(book)

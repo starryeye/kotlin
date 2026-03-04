@@ -25,7 +25,10 @@ class RegisterBookServiceTest @Autowired constructor(
     fun registerBook() {
 
         // given
-        val command = RegisterBookCommand("A")
+        val command = RegisterBookCommand(
+            bookname = "A",
+            category = "Z",
+        )
 
         // when
         service.register(command)
@@ -35,6 +38,7 @@ class RegisterBookServiceTest @Autowired constructor(
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
         assertThat(result.first().bookname).isEqualTo(command.bookname)
+        assertThat(result.first().category).isEqualTo(command.category)
     }
 
 }

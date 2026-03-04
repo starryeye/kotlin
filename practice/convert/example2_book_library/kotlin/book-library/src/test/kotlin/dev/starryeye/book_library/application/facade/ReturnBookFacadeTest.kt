@@ -35,7 +35,7 @@ class ReturnBookFacadeTest @Autowired constructor(
     fun returnBook1() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser = userRepository.save(User("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory(
             user = savedUser,
@@ -77,7 +77,7 @@ class ReturnBookFacadeTest @Autowired constructor(
     fun returnBook3() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val notExistUserId = 999L
         val command = ReturnBookInput(savedBook.id!!, notExistUserId)
 
@@ -93,7 +93,7 @@ class ReturnBookFacadeTest @Autowired constructor(
     fun returnBook4() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val loanUser = userRepository.save(User("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory(
             user = loanUser,
@@ -115,7 +115,7 @@ class ReturnBookFacadeTest @Autowired constructor(
     fun returnBook5() {
 
         // given
-        val savedBook = bookRepository.save(Book("A"))
+        val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser = userRepository.save(User("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory(
             user = savedUser,

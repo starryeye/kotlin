@@ -6,10 +6,13 @@ import jakarta.validation.constraints.NotBlank
 data class RegisterBookRequest(
     @field:NotBlank
     val bookname: String?,
+    @field:NotBlank
+    val category: String?,
 )
 
 fun RegisterBookRequest.toCommand(): RegisterBookCommand {
     return RegisterBookCommand(
-        bookname = this.bookname!!
+        bookname = this.bookname!!,
+        category = this.category!!,
     )
 }
