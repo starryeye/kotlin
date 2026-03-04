@@ -25,7 +25,7 @@ class WithdrawUserServiceTest @Autowired constructor(
     fun withdraw() {
 
         // given
-        val saved = userRepository.save(User("A", 20))
+        val saved = userRepository.save(User.fixture("A", 20))
         val deleteUserId = saved.id
 
         // when

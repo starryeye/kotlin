@@ -27,8 +27,8 @@ class GetUsersServiceTest @Autowired constructor(
 
         // given
         userRepository.saveAll(listOf(
-            User("A", 20),
-            User("B", null),
+            User.fixture("A", 20),
+            User.fixture("B", null),
         ))
 
         // when

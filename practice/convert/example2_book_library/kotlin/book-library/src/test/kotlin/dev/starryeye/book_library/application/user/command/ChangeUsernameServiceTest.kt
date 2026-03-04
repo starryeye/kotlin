@@ -27,7 +27,7 @@ class ChangeUsernameServiceTest @Autowired constructor(
     fun changeUsername() {
 
         // given
-        val saved = userRepository.save(User("A", 20))
+        val saved = userRepository.save(User.fixture("A", 20))
         val command = ChangeUsernameCommand(
             id = saved.id!!,
             username = "B",

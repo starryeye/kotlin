@@ -47,4 +47,16 @@ class User(
 
         history.markReturned()
     }
+
+    companion object {
+        fun fixture(
+            username: String = "user name",
+            age: Int? = null,
+        ): User {
+            return User(
+                username = username,
+                age = age,
+            )
+        }
+    }
 }
