@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "books")
 @EntityListeners(AuditingEntityListener::class)
 class Book(
-    val bookname: String?,
+    val bookname: String,
 ) : BaseEntity() {
 
     @field:Id
@@ -21,7 +21,7 @@ class Book(
     val id: Long? = null
 
     init {
-        if (bookname.isNullOrBlank()) {
+        if (bookname.isBlank()) {
             throw IllegalArgumentException("Book name cannot be null or blank")
         }
     }
