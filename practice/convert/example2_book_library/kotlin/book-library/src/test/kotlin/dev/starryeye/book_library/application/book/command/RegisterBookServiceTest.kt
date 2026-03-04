@@ -1,6 +1,7 @@
 package dev.starryeye.book_library.application.book.command
 
 import dev.starryeye.book_library.application.book.command.command.RegisterBookCommand
+import dev.starryeye.book_library.domain.book.BookCategory
 import dev.starryeye.book_library.domain.book.BookRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
@@ -27,7 +28,7 @@ class RegisterBookServiceTest @Autowired constructor(
         // given
         val command = RegisterBookCommand(
             bookname = "A",
-            category = "Z",
+            category = BookCategory.SCIENCE,
         )
 
         // when

@@ -3,6 +3,8 @@ package dev.starryeye.book_library.domain.book
 import dev.starryeye.book_library.domain.BaseEntity
 import jakarta.persistence.Entity
 import jakarta.persistence.EntityListeners
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -13,8 +15,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "books")
 @EntityListeners(AuditingEntityListener::class)
 class Book(
+
     val bookname: String,
-    val category: String,
+
+    @Enumerated(EnumType.STRING)
+    val category: BookCategory,
 ) : BaseEntity() {
 
     @field:Id
@@ -34,7 +39,7 @@ class Book(
     companion object {
         fun fixture(
             bookname: String = "book name",
-            category: String = "book category",
+            category: BookCategory = BookCategory.SCIENCE,
         ): Book {
             return Book(
                 bookname = bookname,
