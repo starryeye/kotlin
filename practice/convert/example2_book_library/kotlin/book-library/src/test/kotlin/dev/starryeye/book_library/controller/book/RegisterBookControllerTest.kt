@@ -4,7 +4,9 @@ import com.ninjasquad.springmockk.MockkBean
 import dev.starryeye.book_library.application.book.command.RegisterBookService
 import dev.starryeye.book_library.application.book.command.command.RegisterBookCommand
 import dev.starryeye.book_library.domain.book.BookCategory
+import io.mockk.clearAllMocks
 import io.mockk.verify
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -24,6 +26,11 @@ class RegisterBookControllerTest @Autowired constructor(
 
     @MockkBean(relaxed = true)
     private lateinit var registerBookService: RegisterBookService
+
+    @AfterEach
+    fun tearDown() {
+        clearAllMocks()
+    }
 
     @DisplayName("POST /api/v1/books/new 요청으로 책을 등록한다.")
     @Test
