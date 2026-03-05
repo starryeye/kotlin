@@ -2,7 +2,9 @@ package dev.starryeye.book_library.controller.book
 
 import com.ninjasquad.springmockk.MockkBean
 import dev.starryeye.book_library.application.book.command.RegisterBookService
+import dev.starryeye.book_library.application.book.command.command.RegisterBookCommand
 import dev.starryeye.book_library.domain.book.BookCategory
+import io.mockk.verify
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -42,6 +44,12 @@ class RegisterBookControllerTest @Autowired constructor(
         )
             .andDo(print())
             .andExpect(status().isOk)
+
+        verify(exactly = 1) {
+            registerBookService.register(
+                RegisterBookCommand("book name 1", BookCategory.SCIENCE)
+            )
+        }
     }
 
     @DisplayName("책 이름은 필수인데 없으면 400 에러")
