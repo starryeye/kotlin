@@ -7,6 +7,7 @@ import dev.starryeye.book_library.domain.user.User
 import dev.starryeye.book_library.domain.user.UserRepository
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistory
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistoryRepository
+import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.AfterEach
@@ -40,7 +41,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         userLoanHistoryRepository.save(UserLoanHistory(
             user = savedUser,
             bookId = savedBook.id!!,
-            isReturn = false
+            isReturn = UserLoanStatus.LOANED
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)
 
@@ -52,7 +53,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
         assertThat(result.first().bookId).isEqualTo(savedBook.id)
-        assertThat(result.first().isReturn).isTrue
+        assertThat(result.first().isReturn).isEqualTo(UserLoanStatus.RETURNED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }
 
@@ -98,7 +99,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         userLoanHistoryRepository.save(UserLoanHistory(
             user = loanUser,
             bookId = savedBook.id!!,
-            isReturn = false
+            isReturn = UserLoanStatus.LOANED
         ))
         val notLoanUser = userRepository.save(User.fixture("B", 20))
         val command = ReturnBookInput(savedBook.id!!, notLoanUser.id!!)
@@ -120,7 +121,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         userLoanHistoryRepository.save(UserLoanHistory(
             user = savedUser,
             bookId = savedBook.id!!,
-            isReturn = true
+            isReturn = UserLoanStatus.RETURNED
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)
 

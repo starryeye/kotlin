@@ -6,6 +6,7 @@ import dev.starryeye.book_library.domain.book.BookRepository
 import dev.starryeye.book_library.domain.user.User
 import dev.starryeye.book_library.domain.user.UserRepository
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistoryRepository
+import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.AfterEach
@@ -46,7 +47,7 @@ class LoanBookFacadeTest @Autowired constructor(
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
         assertThat(result.first().bookId).isEqualTo(savedBook.id)
-        assertThat(result.first().isReturn).isFalse
+        assertThat(result.first().isReturn).isEqualTo(UserLoanStatus.LOANED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }
 

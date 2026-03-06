@@ -2,6 +2,7 @@ package dev.starryeye.book_library.domain.user
 
 import dev.starryeye.book_library.domain.BaseEntity
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistory
+import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -34,7 +35,7 @@ class User(
     }
 
     fun loanBook(bookId: Long) {
-        loanHistories.add(UserLoanHistory(this, bookId, false))
+        loanHistories.add(UserLoanHistory(this, bookId, UserLoanStatus.LOANED))
     }
 
     fun returnBook(bookId: Long) {

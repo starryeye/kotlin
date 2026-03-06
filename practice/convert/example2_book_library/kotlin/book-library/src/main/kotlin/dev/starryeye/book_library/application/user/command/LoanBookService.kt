@@ -2,6 +2,7 @@ package dev.starryeye.book_library.application.user.command
 
 import dev.starryeye.book_library.domain.user.UserRepository
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistoryRepository
+import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
 import dev.starryeye.book_library.util.findByIdOrThrow
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -15,7 +16,7 @@ class LoanBookService(
 
     fun loan(userId: Long, bookId: Long) {
 
-        if (userLoanHistoryRepository.existsByBookIdAndIsReturn(bookId, false)) {
+        if (userLoanHistoryRepository.existsByBookIdAndIsReturn(bookId, UserLoanStatus.LOANED)) {
             throw IllegalStateException("book is already loaned, id = $bookId")
         }
 
