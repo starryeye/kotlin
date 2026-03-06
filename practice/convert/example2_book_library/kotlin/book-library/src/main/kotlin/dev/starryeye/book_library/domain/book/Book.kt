@@ -34,6 +34,7 @@ class Book(
 
     // object mother 패턴..
     // 해당 객체(Book)의 프로퍼티가 늘어나더라도 Test code 에 전파되지 않는다.
+    //      테스트 픽스처는 테스트 객체 생성 로직을 중앙 집중화해서, 엔티티에 필드가 추가되더라도 테스트 코드를 최소한만 수정하게 도와줘 유지보수성을 높인다.
     //      test code 에서는 Book 객체 생성시 Book.fixture() 만을 사용
     // 참고. DTO 는 Domain 객체보다 많이 사용되지 않는 편이라 fixture 를 안만드는 편
     companion object {

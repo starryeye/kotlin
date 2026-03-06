@@ -17,6 +17,17 @@ class UserLoanHistory(
 
     @field:Enumerated(EnumType.STRING)
     var status: UserLoanStatus = UserLoanStatus.LOANED,
+    /**
+     * 여러 boolean 필드가 상태를 나타낼 때 코드가 복잡해 질 수 있다.
+     * boolean 프로퍼티가 n 개 이면 해당 도메인의 상태 경우의 수는 2^n 이다.
+     *      그와중에 있을 수 없는 상태(필요없는 상태)의 조합도 생긴다.
+     * 따라서, 상태는 enum 으로 명확하게 관리하는 편이 좋다.
+     * ex. User 의 경우엔..
+     *      isActive, isDeleted 두개로 하지말고
+     *      하나의 status 로 아래와 같이 하나의 상태로 관리
+     *          ACTIVE(활성유저), IN_ACTIVE(휴면유저), DELETED(탈퇴유저)
+     */
+
 ) : BaseEntity() {
 
     @field:Id
