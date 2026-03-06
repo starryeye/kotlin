@@ -16,7 +16,7 @@ class LoanBookService(
 
     fun loan(userId: Long, bookId: Long) {
 
-        if (userLoanHistoryRepository.existsByBookIdAndIsReturn(bookId, UserLoanStatus.LOANED)) {
+        if (userLoanHistoryRepository.existsByBookIdAndStatus(bookId, UserLoanStatus.LOANED)) {
             throw IllegalStateException("book is already loaned, id = $bookId")
         }
 

@@ -16,7 +16,7 @@ class UserLoanHistory(
     val bookId: Long,
 
     @field:Enumerated(EnumType.STRING)
-    var isReturn: UserLoanStatus,
+    var status: UserLoanStatus = UserLoanStatus.LOANED,
 ) : BaseEntity() {
 
     @field:Id
@@ -24,11 +24,25 @@ class UserLoanHistory(
     val id: Long? = null
 
     fun markReturned() {
-        if (isReturn == UserLoanStatus.RETURNED) {
+        if (status == UserLoanStatus.RETURNED) {
             throw IllegalStateException("already returned, id=$id")
         }
-        this.isReturn = UserLoanStatus.RETURNED
+        this.status = UserLoanStatus.RETURNED
     }
 
-    fun isNotReturned(): Boolean = isReturn == UserLoanStatus.LOANED
+    fun isNotReturned(): Boolean = status == UserLoanStatus.LOANED
+
+    companion object {
+        fun fixture(
+            user: User = User.fixture(),
+            bookId: Long = 1L,
+            status: UserLoanStatus = UserLoanStatus.LOANED,
+        ): UserLoanHistory {
+            return UserLoanHistory(
+                user = user,
+                bookId = bookId,
+                status = status,
+            )
+        }
+    }
 }

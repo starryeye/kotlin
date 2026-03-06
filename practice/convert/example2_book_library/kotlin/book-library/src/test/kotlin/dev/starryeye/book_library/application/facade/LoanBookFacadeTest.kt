@@ -47,7 +47,7 @@ class LoanBookFacadeTest @Autowired constructor(
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
         assertThat(result.first().bookId).isEqualTo(savedBook.id)
-        assertThat(result.first().isReturn).isEqualTo(UserLoanStatus.LOANED)
+        assertThat(result.first().status).isEqualTo(UserLoanStatus.LOANED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }
 

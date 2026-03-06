@@ -38,10 +38,9 @@ class ReturnBookFacadeTest @Autowired constructor(
         // given
         val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser = userRepository.save(User.fixture("A", 20))
-        userLoanHistoryRepository.save(UserLoanHistory(
+        userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = savedUser,
             bookId = savedBook.id!!,
-            isReturn = UserLoanStatus.LOANED
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)
 
@@ -53,7 +52,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
         assertThat(result.first().bookId).isEqualTo(savedBook.id)
-        assertThat(result.first().isReturn).isEqualTo(UserLoanStatus.RETURNED)
+        assertThat(result.first().status).isEqualTo(UserLoanStatus.RETURNED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }
 
@@ -96,10 +95,9 @@ class ReturnBookFacadeTest @Autowired constructor(
         // given
         val savedBook = bookRepository.save(Book.fixture("A"))
         val loanUser = userRepository.save(User.fixture("A", 20))
-        userLoanHistoryRepository.save(UserLoanHistory(
+        userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = loanUser,
             bookId = savedBook.id!!,
-            isReturn = UserLoanStatus.LOANED
         ))
         val notLoanUser = userRepository.save(User.fixture("B", 20))
         val command = ReturnBookInput(savedBook.id!!, notLoanUser.id!!)
@@ -118,10 +116,10 @@ class ReturnBookFacadeTest @Autowired constructor(
         // given
         val savedBook = bookRepository.save(Book.fixture("A"))
         val savedUser = userRepository.save(User.fixture("A", 20))
-        userLoanHistoryRepository.save(UserLoanHistory(
+        userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = savedUser,
             bookId = savedBook.id!!,
-            isReturn = UserLoanStatus.RETURNED
+            status = UserLoanStatus.RETURNED
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)
 
