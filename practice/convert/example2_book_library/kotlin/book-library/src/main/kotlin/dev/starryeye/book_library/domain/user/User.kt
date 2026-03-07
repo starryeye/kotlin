@@ -1,6 +1,7 @@
 package dev.starryeye.book_library.domain.user
 
 import dev.starryeye.book_library.domain.BaseEntity
+import dev.starryeye.book_library.domain.book.Book
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistory
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
 import jakarta.persistence.*
@@ -34,13 +35,13 @@ class User(
         this.username = username
     }
 
-    fun loanBook(bookId: Long) {
-        loanHistories.add(UserLoanHistory(this, bookId, UserLoanStatus.LOANED))
+    fun loanBook(book: Book) {
+        loanHistories.add(UserLoanHistory(this, book, UserLoanStatus.LOANED))
     }
 
     fun returnBook(bookId: Long) {
         val history = loanHistories.asSequence()
-            .filter { it.bookId == bookId }
+            .filter { it.book.id == bookId }
             .firstOrNull { it.isNotReturned() }
             ?: throw IllegalArgumentException(
                 "active loan history is not found, bookId = $bookId, userId = $id"

@@ -46,7 +46,7 @@ class LoanBookFacadeTest @Autowired constructor(
         val result = userLoanHistoryRepository.findAll()
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
-        assertThat(result.first().bookId).isEqualTo(savedBook.id)
+        assertThat(result.first().book.id).isEqualTo(savedBook.id)
         assertThat(result.first().status).isEqualTo(UserLoanStatus.LOANED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }

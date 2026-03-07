@@ -1,6 +1,7 @@
 package dev.starryeye.book_library.domain.user.loan_history
 
 import dev.starryeye.book_library.domain.BaseEntity
+import dev.starryeye.book_library.domain.book.Book
 import dev.starryeye.book_library.domain.user.User
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
@@ -13,7 +14,9 @@ class UserLoanHistory(
     @field:JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
-    val bookId: Long,
+    @field:ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @field:JoinColumn(name = "book_id", nullable = false)
+    val book: Book,
 
     @field:Enumerated(EnumType.STRING)
     var status: UserLoanStatus = UserLoanStatus.LOANED,
@@ -46,12 +49,12 @@ class UserLoanHistory(
     companion object {
         fun fixture(
             user: User = User.fixture(),
-            bookId: Long = 1L,
+            book: Book = Book.fixture(),
             status: UserLoanStatus = UserLoanStatus.LOANED,
         ): UserLoanHistory {
             return UserLoanHistory(
                 user = user,
-                bookId = bookId,
+                book = book,
                 status = status,
             )
         }

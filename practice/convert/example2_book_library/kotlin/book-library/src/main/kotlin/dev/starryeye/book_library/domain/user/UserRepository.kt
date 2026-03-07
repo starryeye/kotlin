@@ -8,7 +8,17 @@ interface UserRepository : JpaRepository<User, Long> {
 
     @Query(
         """
-        select u
+        select distinct u
+        from User u
+        left join fetch u.loanHistories lh
+        left join fetch lh.book
+        """
+    )
+    fun findAllWithLoanHistoriesAndBooks(): List<User>
+
+    @Query(
+        """
+        select distinct u
         from User u
         left join fetch u.loanHistories
         where u.id = :userId

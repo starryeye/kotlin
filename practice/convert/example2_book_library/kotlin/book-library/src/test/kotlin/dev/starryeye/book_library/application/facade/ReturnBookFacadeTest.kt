@@ -40,7 +40,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         val savedUser = userRepository.save(User.fixture("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = savedUser,
-            bookId = savedBook.id!!,
+            book = savedBook,
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)
 
@@ -51,7 +51,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         val result = userLoanHistoryRepository.findAll()
         assertThat(result).hasSize(1)
         assertThat(result.first().id).isNotNull
-        assertThat(result.first().bookId).isEqualTo(savedBook.id)
+        assertThat(result.first().book.id).isEqualTo(savedBook.id)
         assertThat(result.first().status).isEqualTo(UserLoanStatus.RETURNED)
         assertThat(result.first().user.id).isEqualTo(savedUser.id)
     }
@@ -97,7 +97,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         val loanUser = userRepository.save(User.fixture("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = loanUser,
-            bookId = savedBook.id!!,
+            book = savedBook,
         ))
         val notLoanUser = userRepository.save(User.fixture("B", 20))
         val command = ReturnBookInput(savedBook.id!!, notLoanUser.id!!)
@@ -118,7 +118,7 @@ class ReturnBookFacadeTest @Autowired constructor(
         val savedUser = userRepository.save(User.fixture("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory.fixture(
             user = savedUser,
-            bookId = savedBook.id!!,
+            book = savedBook,
             status = UserLoanStatus.RETURNED
         ))
         val command = ReturnBookInput(savedBook.id!!, savedUser.id!!)

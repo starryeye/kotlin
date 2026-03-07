@@ -1,5 +1,6 @@
 package dev.starryeye.book_library.application.user.command
 
+import dev.starryeye.book_library.domain.book.BookRepository
 import dev.starryeye.book_library.domain.user.UserRepository
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanHistoryRepository
 import dev.starryeye.book_library.domain.user.loan_history.UserLoanStatus
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 @Service
 class LoanBookService(
+    private val bookRepository: BookRepository,
     private val userRepository: UserRepository,
     private val userLoanHistoryRepository: UserLoanHistoryRepository
 ) {
@@ -20,8 +22,9 @@ class LoanBookService(
             throw IllegalStateException("book is already loaned, id = $bookId")
         }
 
+        val book = bookRepository.findByIdOrThrow(bookId, "book is not found, id = $bookId")
         val user = userRepository.findByIdOrThrow(userId, "user is not found, id = $userId")
 
-        user.loanBook(bookId)
+        user.loanBook(book)
     }
 }
