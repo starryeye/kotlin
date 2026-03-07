@@ -25,7 +25,7 @@ class GetUserLoanHistoriesService(
                             BookHistoryResult(
                                 bookId = history.book.id!!,
                                 bookname = history.book.bookname,
-                                isReturned = history.status == UserLoanStatus.RETURNED
+                                isReturned = history.isReturned
                             )
 
                         }

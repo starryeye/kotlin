@@ -37,14 +37,17 @@ class UserLoanHistory(
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null
 
+    val isReturned: Boolean // 컬럼용이 아니다. 필드처럼 생겼지만, 백킹 필드가 없으므로 @Transient 가 필요 없다.
+        get() = status == UserLoanStatus.RETURNED
+
     fun markReturned() {
-        if (status == UserLoanStatus.RETURNED) {
+        if (isReturned) {
             throw IllegalStateException("already returned, id=$id")
         }
         this.status = UserLoanStatus.RETURNED
     }
 
-    fun isNotReturned(): Boolean = status == UserLoanStatus.LOANED
+    fun isNotReturned(): Boolean = !isReturned
 
     companion object {
         fun fixture(
