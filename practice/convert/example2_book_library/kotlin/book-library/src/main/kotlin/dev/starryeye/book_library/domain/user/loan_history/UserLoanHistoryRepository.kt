@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface UserLoanHistoryRepository : JpaRepository<UserLoanHistory, Long> {
 
     fun existsByBookIdAndStatus(bookId: Long, status: UserLoanStatus): Boolean
+
+    fun findAllByStatus(status: UserLoanStatus): List<UserLoanHistory>
 }
