@@ -8,5 +8,5 @@ data class CountBooksByCategoryResult(
 
 data class CountBookByCategoryResult(
     val category: BookCategory,
-    var count: Int
+    val count: Int
 )

@@ -22,5 +22,11 @@ class CountBooksByCategoryService(
                     )
                 }
         )
+
+        // projection 안쓰고 application memory 에서 계산
+//        return CountBooksByCategoryResult(bookRepository.findAll() // List<Book>
+//            .groupBy { book -> book.category } // Map<BookCategory, List<Book>>
+//            .map { (category, books) -> CountBookByCategoryResult(category, books.size) } // List<CountBookByCategoryResult>
+//        )
     }
 }

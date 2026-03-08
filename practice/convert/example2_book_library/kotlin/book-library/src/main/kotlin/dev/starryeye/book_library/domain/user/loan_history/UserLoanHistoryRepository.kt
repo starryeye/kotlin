@@ -6,5 +6,5 @@ interface UserLoanHistoryRepository : JpaRepository<UserLoanHistory, Long> {
 
     fun existsByBookIdAndStatus(bookId: Long, status: UserLoanStatus): Boolean
 
-    fun findAllByStatus(status: UserLoanStatus): List<UserLoanHistory>
+    fun countByStatus(status: UserLoanStatus): Long
 }

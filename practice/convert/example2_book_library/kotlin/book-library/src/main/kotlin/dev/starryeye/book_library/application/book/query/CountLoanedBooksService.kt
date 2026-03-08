@@ -12,6 +12,6 @@ class CountLoanedBooksService(
 ) {
 
     fun countLoanedBooks(): Int {
-        return userLoanHistoryRepository.findAllByStatus(UserLoanStatus.LOANED).size
+        return userLoanHistoryRepository.countByStatus(UserLoanStatus.LOANED).toInt()
     }
 }
