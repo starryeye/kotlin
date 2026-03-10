@@ -6,15 +6,16 @@ import org.springframework.data.repository.query.Param
 
 interface UserRepository : JpaRepository<User, Long>, UserQueryRepository {
 
-    @Query(
-        """
-        select distinct u
-        from User u
-        left join fetch u.loanHistories lh
-        left join fetch lh.book
-        """
-    )
-    fun findAllWithLoanHistoriesAndBooks(): List<User>
+    // querydsl 로 대체함
+//    @Query(
+//        """
+//        select distinct u
+//        from User u
+//        left join fetch u.loanHistories lh
+//        left join fetch lh.book
+//        """
+//    )
+//    fun findAllWithLoanHistoriesAndBooks(): List<User>
 
     @Query(
         """

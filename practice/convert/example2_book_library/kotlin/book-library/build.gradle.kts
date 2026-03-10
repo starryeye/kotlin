@@ -28,7 +28,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect") // 코틀린 객체 reflection 가능하도록 해줌
 	implementation("tools.jackson.module:jackson-module-kotlin") // 코틀린 dto serialize, deserialize 지원
-	implementation("com.querydsl:querydsl-jpa:5.1.0:jakarta")
+	implementation("com.querydsl:querydsl-jpa:5.1.0:jakarta") // querydsl
 
 	runtimeOnly("com.h2database:h2")
 
@@ -41,9 +41,9 @@ dependencies {
 
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-	kapt("com.querydsl:querydsl-apt:5.1.0:jakarta")
-	kapt("jakarta.annotation:jakarta.annotation-api")
-	kapt("jakarta.persistence:jakarta.persistence-api")
+	kapt("com.querydsl:querydsl-apt:5.1.0:jakarta") // querydsl
+	kapt("jakarta.annotation:jakarta.annotation-api") // querydsl
+	kapt("jakarta.persistence:jakarta.persistence-api") // querydsl
 }
 
 kotlin {
@@ -58,7 +58,7 @@ allOpen {
 	annotation("jakarta.persistence.Embeddable")
 }
 
-kapt {
+kapt { // querydsl
 	correctErrorTypes = true
 }
 
