@@ -4,11 +4,12 @@ import dev.starryeye.book_library.domain.book.projection.CountBooksByCategoryPro
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
-interface BookRepository : JpaRepository<Book, Long> {
+interface BookRepository : JpaRepository<Book, Long>, BookQueryRepository {
 
-    @Query(
-        "select new dev.starryeye.book_library.domain.book.projection.CountBooksByCategoryProjection(b.category, count(b)) " +
-            "from Book b group by b.category"
-    )
-    fun countGroupByCategory(): List<CountBooksByCategoryProjection>
+    // querydsl 로 대체
+//    @Query(
+//        "select new dev.starryeye.book_library.domain.book.projection.CountBooksByCategoryProjection(b.category, count(b)) " +
+//            "from Book b group by b.category"
+//    )
+//    fun countGroupByCategory(): List<CountBooksByCategoryProjection>
 }
