@@ -13,10 +13,10 @@ class UserQueryRepositoryImpl(
 
     /**
      * Spring data JPA 단점.
-     * 1. Spring data JPA 만을 사용한다면, 복잡한 쿼리에 대해 @Query 를 사용하여 JPQL 을 작성해야하는데..
+     * 1. Spring data JPA 만을 사용한다면, 복잡한 쿼리에 대해 @Query 를 사용하여 JPQL 을 작성해야하는데.. (통계 쿼리나 많은 join 쿼리등)
      *      이는 문자열로 작성되어 문법 실수가 있다면 runtime 에러로 발생한다.
      * 2. 동적 조건의 쿼리 작성이 어렵다.
-     *      조건 경우의 수만큼 JpaRepository 메서드를 하나하나 작성해줘야한다.
+     *      조건 경우의 수만큼 JpaRepository 메서드를 하나하나 작성해줘야한다. (where 조건이 동적으로 변경되는 등..)
      *
      * Querydsl 장점
      * Spring data JPA 의 단점을 보완해준다.
