@@ -22,6 +22,10 @@ class UserQueryRepositoryImpl(
      * Spring data JPA 의 단점을 보완해준다.
      *      1. 동적 조건 쿼리 작성시 하나의 메서드로 깔끔하게 작성이 가능하다.
      *      2. 문자열이 아닌 코드로 작성하여 compile time 에 문법 오류가 감지 된다.
+     *
+     * 참고.
+     * querydsl 은 join, where 조립에 강한데..
+     * 조건에 따라 return type 이 다른 경우에는 불가능하며 이경우에는 함수를 분리하는 편이 좋다.
      */
 
     /**
@@ -40,4 +44,6 @@ class UserQueryRepositoryImpl(
             .leftJoin(QUserLoanHistory.userLoanHistory.book, QBook.book).fetchJoin()
             .fetch()
     }
+
+
 }
