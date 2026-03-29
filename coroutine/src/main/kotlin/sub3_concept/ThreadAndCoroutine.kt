@@ -1,4 +1,4 @@
-package sub3_thread_and_coroutine
+package sub3_concept
 
 /**
  * [실행 계층 구조]

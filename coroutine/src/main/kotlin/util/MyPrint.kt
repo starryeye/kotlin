@@ -6,5 +6,5 @@ fun myPrint(str: String) {
      *      -Dkotlinx.coroutines.debug
      * 을 추가해주면 Thread.currentThread().name 에 현재의 코루틴 정보가 함께 출력된다.
      */
-    println("[${Thread.currentThread().name}] $str]")
+    println("[${Thread.currentThread().name}] $str")
 }

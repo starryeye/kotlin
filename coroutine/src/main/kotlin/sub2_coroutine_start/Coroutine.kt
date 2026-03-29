@@ -1,4 +1,4 @@
-package sub2_coroutine
+package sub2_coroutine_start
 
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
