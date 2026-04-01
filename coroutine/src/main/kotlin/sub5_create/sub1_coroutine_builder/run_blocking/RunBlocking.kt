@@ -27,6 +27,8 @@ import util.myPrint
  *          - runBlocking 은 기본적으로 단일 스레드에서 동작한다.
  *          - 내부 event loop 를 통해 코루틴을 스케줄링한다.
  *          - 별도의 Dispatcher 를 지정하지 않으면 현재 스레드(main thread)에서 실행된다.
+ *          - 따라서 같은 순간에 실제로 실행되는 코드는 하나뿐이다.
+ *          - 다만 현재 코루틴이 suspend 되면 event loop 가 다른 코루틴에 실행 기회를 줄 수 있다.
  *
  *      동작 흐름
  *          1. runBlocking 호출
@@ -71,6 +73,10 @@ fun main() {
  *      - runBlocking 내부에서 launch로 자식 코루틴 생성
  *      - launch는 비동기로 실행되지만,
  *        runBlocking은 자식 코루틴이 끝날 때까지 종료되지 않음
+ *      - 이 예제에서 부모(runBlocking)와 자식(launch)이 바로 interleaving 되지 않는 이유는
+ *        부모 코드가 launch 이후에 suspend 없이 계속 실행되기 때문이다.
+ *      - 즉, 자식 코루틴은 생성되어 실행 가능 상태가 되지만,
+ *        부모가 실행권을 놓기 전까지는 같은 스레드에서 바로 끼어들지 못한다.
  *
  *      즉, runBlocking은 "코루틴이 끝날 때까지 기다리는 blocking builder"
  *
