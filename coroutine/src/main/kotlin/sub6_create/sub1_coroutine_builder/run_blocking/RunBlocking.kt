@@ -1,4 +1,4 @@
-package sub5_create.sub1_coroutine_builder.run_blocking
+package sub6_create.sub1_coroutine_builder.run_blocking
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
