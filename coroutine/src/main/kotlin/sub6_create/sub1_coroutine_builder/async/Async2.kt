@@ -59,6 +59,15 @@ import util.myPrint
  *      - 성능 이득은 작업의 성격에 따라 다르다.
  *      - blocking API 라면 코드 구조 개선과 작업 분리가 더 중요한 의미가 있고,
  *        non-blocking API 라면 스레드 점유 감소와 높은 동시 처리 효율까지 기대할 수 있다.
+ *
+ * 중요 의의
+ *      - 실무에서 I/O 가 현재 예제의 delay() 처럼 non-blocking 방식으로 동작한다고 생각해보자.
+ *      - Java 에서는 이런 흐름을 CompletableFuture(WebMVC), Mono/Flux(WebFlux) 같은 비동기 타입과
+ *        thenCompose(), flatMap() 등의 조합으로 표현하는 경우가 많다.
+ *      - 이 방식은 비동기 흐름을 잘 표현할 수 있지만, 코드가 체이닝 중심으로 흘러가 읽기 어려워질 수 있다.
+ *      - 반면 Kotlin coroutine 을 사용하면 같은 비동기 흐름을 suspend / await 형태로 작성하여
+ *        "순차 코드처럼 읽히게 만들 수 있다."
+ *      - 단, 이것은 코드를 읽기 쉽게 만드는 것이지, blocking 작업을 자동으로 non-blocking 으로 바꿔준다는 뜻은 아니다.
  */
 fun main(): Unit = runBlocking  {
 
