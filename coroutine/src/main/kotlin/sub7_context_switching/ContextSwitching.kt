@@ -1,4 +1,4 @@
-package sub6_context_switching
+package sub7_context_switching
 
 /**
  * process context switching

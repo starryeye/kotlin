@@ -112,8 +112,8 @@ package sub3_concept
  *      코루틴이 실행될 "스레드 또는 스레드 풀"을 결정하는 정책
  *
  *      예
- *          Dispatchers.Default → CPU 작업용 thread pool
- *          Dispatchers.IO      → IO 작업용 thread pool
+ *          Dispatchers.Default → CPU 바운드 작업용 공용 background thread pool
+ *          Dispatchers.IO      → blocking I/O 작업용 공용 thread pool
  *          runBlocking         → 현재 스레드 기반
  */
 
