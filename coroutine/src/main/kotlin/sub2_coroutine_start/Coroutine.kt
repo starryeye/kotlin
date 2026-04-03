@@ -36,8 +36,11 @@ import util.myPrint
  * suspend fun
  *      suspend 함수나 코루틴 내부에서만 호출 가능
  *      다른 suspend fun 을 호출 할 수 있다.
- *      대표적인 suspend fun
- *          yield()
+ *      "항상 즉시 코루틴을 중단시키는 함수"가 아니라
+ *      "필요한 경우 중단(suspend)될 수 있는 함수"라는 의미이다.
+ *      즉, suspend fun 을 호출했다고 해서 반드시 중단되는 것은 아니다.
+ *      suspend fun 함수 내부에 실제 suspend 지점(delay, yield, await 등)이 있으면
+ *          그 지점에서 코루틴은 중단되고 스레드는 다른 작업을 하러 떠난다.
  *
  * yield
  *      현재 코루틴을 일시 중단(suspend)하고 실행을 양보한다.

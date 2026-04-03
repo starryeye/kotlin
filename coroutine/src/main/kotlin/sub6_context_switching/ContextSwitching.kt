@@ -1,3 +1,5 @@
+package sub6_context_switching
+
 /**
  * process context switching
  *      프로세스는 각각 독립된 메모리 영역을 가지고 있기 때문에

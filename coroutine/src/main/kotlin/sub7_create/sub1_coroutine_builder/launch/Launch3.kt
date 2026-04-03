@@ -1,4 +1,4 @@
-package sub6_create.sub1_coroutine_builder.launch
+package sub7_create.sub1_coroutine_builder.launch
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -31,7 +31,7 @@ import util.myPrint
  *          - 실제 종료는 suspend 지점에서 발생한다.
  *
  *      주의
- *          - suspend 지점이 없는 코루틴은 cancel()이 바로 동작하지 않을 수 있다.
+ *          - 중간에 suspend 지점이 없는 코루틴은 cancel()이 동작하지 않는다.
  *          - (무한 루프 + suspend 없음 → 취소 안됨)
  */
 

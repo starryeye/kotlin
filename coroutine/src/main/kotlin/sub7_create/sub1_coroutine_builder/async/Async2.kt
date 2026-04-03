@@ -1,4 +1,4 @@
-package sub6_create.sub1_coroutine_builder.async
+package sub7_create.sub1_coroutine_builder.async
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -121,5 +121,29 @@ suspend fun function2(): Int {
  *      - 코루틴만 suspend 되고, 스레드는 다른 요청이나 다른 코루틴 처리에 재사용될 수 있다.
  *      - 이 경우 async 는 여러 외부 요청의 대기 시간을 겹쳐
  *        전체 응답 시간을 줄이는 데 특히 효과적이다.
+ *
+ *
+ * 간단한 수도코드 비교
+ *      CompletableFuture
+ *          val result =
+ *              userFuture()
+ *                  .thenCompose { user -> orderFuture(user.id) }
+ *                  .thenApply { order -> makeResult(order) }
+ *
+ *      Mono
+ *          val resultMono =
+ *              userMono()
+ *                  .flatMap { user -> orderMono(user.id) }
+ *                  .map { order -> makeResult(order) }
+ *
+ *      Kotlin coroutine
+ *          suspend fun load(): Result {
+ *              val user = userCall()
+ *              val order = orderCall(user.id)
+ *              return makeResult(order)
+ *          }
+ *
+ *      - 위 coroutine 예제는 순차적으로 보이지만,
+ *        내부 호출이 non-blocking suspend 라면 스레드를 오래 붙잡지 않을 수 있다.
  *
  */
