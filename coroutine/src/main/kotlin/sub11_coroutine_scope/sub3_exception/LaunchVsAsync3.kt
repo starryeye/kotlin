@@ -67,7 +67,7 @@ fun main(): Unit = runBlocking {
     val job2 = launch(SupervisorJob()) {
         throw IllegalStateException("launch exception")
     }
-    
+
     delay(1000)
     myPrint("runBlocking end") // 정상 출력됨
 }
