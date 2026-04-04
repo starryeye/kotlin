@@ -40,8 +40,7 @@ fun main(): Unit = runBlocking {
     /**
      * 여기서 join() 은 job1 이 끝날 때까지 기다리기만 한다.
      *
-     * 하지만 job1 은 runBlocking 의 자식이므로
-     * 이미 그 실패가 부모(runBlocking) 취소의 원인이 될 수 있다.
+     * 하지만 job1 은 runBlocking 의 자식이므로 예외가 부모(runBlocking)에까지 전파된다.
      *
      * 즉, LaunchVsAsync1 의 root async 처럼
      * "Deferred 안에 저장되어 main 과 분리된 채 남는 상황"과는 다르다.
@@ -53,8 +52,7 @@ fun main(): Unit = runBlocking {
     }
 
     /**
-     * launch 역시 runBlocking 의 자식이므로
-     * 실패하면 그 예외가 부모(runBlocking) 쪽으로 전파된다.
+     * launch 역시 runBlocking 의 자식이므로 예외가 부모(runBlocking) 쪽으로 전파된다.
      *
      * 아래 delay 는 자식 코루틴들이 실행될 시간을 주기 위한 코드다.
      * 다만 실제로는 그 전에 부모가 취소/실패 흐름으로 들어갈 수도 있다.
