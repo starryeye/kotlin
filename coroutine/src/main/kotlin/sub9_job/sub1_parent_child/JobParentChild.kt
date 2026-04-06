@@ -7,7 +7,7 @@ import kotlinx.coroutines.runBlocking
 import util.myPrint
 
 /**
- * Job - parent and child
+ * Job - parent and child (Job 을 코루틴이라 부르기도함)
  *
  *      현재 코루틴 안에서 launch { ... } 로 새 코루틴을 만들면
  *      그 새 코루틴은 현재 코루틴의 자식 Job 이 된다.
@@ -24,6 +24,9 @@ import util.myPrint
  *          2. 부모가 취소되면 자식에게도 취소가 전파된다.
  *
  *      아래 예제는 이 두 가지를 순서대로 보여준다.
+ *
+ * 참고
+ *      코루틴(Job)의 Lifecycle 에 대해서는 sub11 > sub6 을 참고
  */
 fun main() {
     myPrint("example1 start")

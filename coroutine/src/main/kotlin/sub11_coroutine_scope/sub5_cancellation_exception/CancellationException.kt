@@ -1,0 +1,27 @@
+package sub11_coroutine_scope.sub5_cancellation_exception
+
+/**
+ * CancellationException..
+ *
+ *      sub8 에서 cancel(), isActive, CancellationException 을 한 번 보았고,
+ *      sub11 에서는 예외 전파와 CoroutineExceptionHandler 를 봤다.
+ *
+ *      여기서 중요한 질문이 생긴다.
+ *          "그러면 CancellationException 은 일반 예외와 왜 다른가?"
+ *          "Job 은 내부적으로 어떤 상태를 거치며 종료되는가?"
+ *
+ * CancellationException 은 왜 특별한가?
+ *      Kotlin coroutine 에서 CancellationException 은 "실패"를 표현하는 예외라기보다
+ *          "취소(cancellation)"를 표현하는 신호이다.
+ *
+ *      즉,
+ *          IllegalStateException, RuntimeException 같은 예외는 "정상 흐름이 아닌 실패"를 의미한다.
+ *          반면 CancellationException 은 "이 코루틴은 취소 절차에 들어간다"는 의미이다.
+ *          따라서, 일반 예외는 부모를 실패시키고 부모라면 CoroutineExceptionHandler 에 의해 처리되며,
+ *              CancellationException 은 부모까지 취소시키지 않고 부모라도 CoroutineExceptionHandler 에 의해 처리되지 않는다.
+ *      주의,
+ *          위와같은 이유로 try-catch 를 다룰때 CancellationException 은 다시 던져야한다.
+ *
+ *
+ */
+fun main() {}

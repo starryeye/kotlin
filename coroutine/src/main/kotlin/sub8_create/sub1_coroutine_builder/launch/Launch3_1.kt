@@ -25,6 +25,9 @@ import util.myPrint
  *          - cancel() 이 호출되는 순간 사용자가 직접 예외를 throw 하는 것이 아니다.
  *          - 취소 가능 suspend 함수가 취소 상태를 확인한 뒤
  *            CancellationException 으로 실행을 중단시키는 것이다.
+ *
+ * 참고
+ *      CancellationException 에 대해서는 sub11 > sub5_cancellation_exception 에서 한번 더 다룬다.
  */
 fun main(): Unit = runBlocking {
 
