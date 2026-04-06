@@ -27,8 +27,9 @@ import util.myPrint
  *
  *      자주 보는 Dispatcher
  *          - runBlocking 기본값 : 현재 스레드 기반
- *          - Dispatchers.Default : CPU 바운드 작업용 공용 background thread pool (ForkJoinPool 아니라고한다..)
+ *          - Dispatchers.Default : CPU 바운드 작업용 공용 background thread pool (ForkJoinPool 이다.)
  *          - Dispatchers.IO      : blocking I/O 작업용 공용 thread pool
+ *          - ExecutorService 를 Dispatcher 로 사용하기 위해서는 asCoroutineDispatcher() 확장함수를 이용한다.
  *
  *      아래 예제에서 보고 싶은 것
  *          1. 별도 Dispatcher 를 지정하지 않으면 부모 문맥을 상속한다.
