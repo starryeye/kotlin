@@ -17,8 +17,17 @@ package sub11_coroutine_scope.sub5_cancellation_exception
  *      즉,
  *          IllegalStateException, RuntimeException 같은 예외는 "정상 흐름이 아닌 실패"를 의미한다.
  *          반면 CancellationException 은 "이 코루틴은 취소 절차에 들어간다"는 의미이다.
- *          따라서, 일반 예외는 부모를 실패시키고 부모라면 CoroutineExceptionHandler 에 의해 처리되며,
- *              CancellationException 은 부모까지 취소시키지 않고 부모라도 CoroutineExceptionHandler 에 의해 처리되지 않는다.
+ *          따라서,
+ *              일반 예외가 자식에서 발생되면..
+ *                  부모를 실패시키고 이후, 부모의 자식들 취소
+ *              일반 예외가 부모에서 발생되면..
+ *                  모든 자식들 취소
+ *                  부모가 루트 코루틴이면, CoroutineExceptionHandler 에 의해 처리
+ *              CancellationException 예외가 자식에서 발생되면..
+ *                  정상 취소로 간주되고, 부모까지 취소시키지 않음
+ *              CancellationException 예외가 부모에서 발생되면..
+ *                  모든 자식들 취소
+ *                  부모가 루트 코루틴이라도 CoroutineExceptionHandler 에 의해 처리되지 않는다.
  *      주의,
  *          위와같은 이유로 try-catch 를 다룰때 CancellationException 은 다시 던져야한다.
  *

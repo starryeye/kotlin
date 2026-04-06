@@ -74,6 +74,8 @@ package sub11_coroutine_scope.sub6_job_lifecycle
  *      전이:
  *          COMPLETING -> COMPLETED
  *              모든 자식까지 정상적으로 정리 완료
+ *          COMPLETING -> CANCELLING
+ *              부모 코루틴은 종료 중이었는데 자식 코루틴에서 취소신호가 와서 부모 코루틴에 전파됨
  *
  * 4. COMPLETED
  *      정상 완료 상태
