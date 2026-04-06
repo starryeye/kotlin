@@ -27,7 +27,7 @@ import util.myPrint
  *            CancellationException 으로 실행을 중단시키는 것이다.
  *
  * 참고
- *      CancellationException 에 대해서는 sub11 > sub5_cancellation_exception 에서 한번 더 다룬다.
+ *      CancellationException 에 대해서는 sub11 > sub5 에서 한번 더 다룬다.
  */
 fun main(): Unit = runBlocking {
 
