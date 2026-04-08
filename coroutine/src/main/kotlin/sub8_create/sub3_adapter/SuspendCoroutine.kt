@@ -1,4 +1,4 @@
-package sub8_create.sub2_adapter
+package sub8_create.sub3_adapter
 
 import kotlinx.coroutines.runBlocking
 import util.myPrint
@@ -151,16 +151,16 @@ fun main(): Unit = runBlocking {
 
 /**
  * 실행 결과 예시
- *      [sub8_create.sub2_adapter.example.main] start
- *      [sub8_create.sub2_adapter.example.main] awaitDelayed -> result-after-500ms
- *      [sub8_create.sub2_adapter.example.main] awaitDelayedCancellable -> result-after-500ms
- *      [sub8_create.sub2_adapter.example.main] awaitDelayedOrFail 실패 잡음: 외부 작업 실패
- *      [sub8_create.sub2_adapter.example.main] end
+ *      [sub8_create.sub3_adapter.main] start
+ *      [sub8_create.sub3_adapter.main] awaitDelayed -> result-after-500ms
+ *      [sub8_create.sub3_adapter.main] awaitDelayedCancellable -> result-after-500ms
+ *      [sub8_create.sub3_adapter.main] awaitDelayedOrFail 실패 잡음: 외부 작업 실패
+ *      [sub8_create.sub3_adapter.main] end
  *
  * 참고
  *      - resume 이 호출되는 시점은 fake-async-api 스레드이지만,
  *        runBlocking 의 기본 dispatcher 가 결국 main 스레드에서 이어 실행하기 때문에
- *        이어지는 코드는 [sub8_create.sub2_adapter.example.main] 에서 출력된다.
+ *        이어지는 코드는 [sub8_create.sub3_adapter.main] 에서 출력된다.
  *      - 즉, 코루틴은 "어디서 깨워졌는가" 와 "어디서 이어 실행되는가" 를 분리할 수 있다.
  *
  * 정리

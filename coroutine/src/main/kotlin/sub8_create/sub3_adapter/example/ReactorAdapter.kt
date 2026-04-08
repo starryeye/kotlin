@@ -1,4 +1,4 @@
-package sub8_create.sub2_adapter.example
+package sub8_create.sub3_adapter.example
 
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
